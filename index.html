@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCash - Product Rollout Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #EC4899;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            top: 50%;
+            right: -100px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+
+        .content {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: logoReveal 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            animation: underline 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes underline {
+            to { transform: scaleX(1); }
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: visible;
+            border: 1px solid var(--gray-200);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        .card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .card.expanded .card-details {
+            max-height: 300px;
+        }
+
+        .expand-hint {
+            font-size: 0.75rem;
+            color: var(--primary);
+            margin-top: 1rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1.0s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 0 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--primary);
+            z-index: 10;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-600);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            border-radius: 24px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .nav-dot:hover {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .nav-dot.active {
+            background: var(--secondary);
+            transform: scale(1.5);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            .timeline-content {
+                margin: 1rem 0;
+            }
+            .slide {
+                padding: 60px 20px;
+            }
+            .logo {
+                font-size: 2.5rem;
+            }
+            .nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-dots" id="navDots"></div>
+
+    <div class="scroll-container" id="scrollContainer">
+
+        <!-- Slide 1: Title -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content" style="text-align: center;">
+                <div class="logo-container">
+                    <div class="logo">UniCash</div>
+                </div>
+                <p class="tagline">Seed/Series A Pitch Deck</p>
+                <h1>Financial Services<br>Without Borders</h1>
+                <p class="subtitle">Building a comprehensive fintech platform to serve 62M underbanked Americans with cash advances, remittances, insurance, assistance plans, and burial coverage</p>
+
+                <div class="stat-grid" style="max-width: 900px; margin: 4rem auto 0;">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="4" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="stat-label">TARGET RAISE</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="5">0</div>
+                        <div class="stat-label">PRODUCT LINES</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="250" data-suffix="K">0K</div>
+                        <div class="stat-label">12-MONTH USER TARGET</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Executive Summary -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>Executive Summary</h2>
+                <p class="subtitle">The opportunity to build a comprehensive financial services platform</p>
+
+                <div class="cards-grid">
+                    <div class="card" onclick="this.classList.toggle('expanded')">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M28 32l4 4 8-8" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <div class="card-label">The Vision</div>
+                        <div class="card-number" style="font-size: 1.8rem;">One App</div>
+                        <div class="card-description">Five essential financial services</div>
+                        <div class="expand-hint">↓ Tap to expand</div>
+                        <div class="card-details">
+                            <p style="color: var(--gray-600);">
+                                <strong>Mission:</strong> Serve 62M underbanked Americans<br>
+                                <strong>Strategy:</strong> Multi-product ecosystem<br>
+                                <strong>Target:</strong> Latino communities first<br>
+                                <strong>Advantage:</strong> Bilingual, mobile-first
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="this.classList.toggle('expanded')">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M22 32h20M32 22v20" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <div class="card-label">Market Opportunity</div>
+                        <div class="card-number" data-target="167" data-prefix="$" data-suffix="B">$0</div>
+                        <div class="card-description">Total addressable market</div>
+                        <div class="expand-hint">↓ Tap to expand</div>
+                        <div class="card-details">
+                            <p style="color: var(--gray-600);">
+                                <strong>$74B</strong> US remittances annually<br>
+                                <strong>$93B</strong> cash advance market<br>
+                                <strong>62M</strong> underbanked Americans<br>
+                                <strong>18% CAGR</strong> market growth
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="this.classList.toggle('expanded')">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M10 44l12-15 10 10 12-15 10 10" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="29" r="3" fill="#8B5CF6"/>
+                            <circle cx="32" cy="39" r="3" fill="#8B5CF6"/>
+                            <circle cx="44" cy="24" r="3" fill="#8B5CF6"/>
+                        </svg>
+                        <div class="card-label">Growth Trajectory</div>
+                        <div class="card-number" data-target="250" data-suffix="K">0K</div>
+                        <div class="card-description">Active users by Month 12</div>
+                        <div class="expand-hint">↓ Tap to expand</div>
+                        <div class="card-details">
+                            <p style="color: var(--gray-600);">
+                                <strong>Month 12:</strong> 250K users, 5 products live<br>
+                                <strong>Month 18:</strong> 500K users<br>
+                                <strong>Month 24:</strong> 1M users<br>
+                                <strong>Revenue:</strong> $20M+ ARR at Month 12
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Product Features -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>Our Product Suite</h2>
+                <p class="subtitle">Five powerful products serving underserved communities</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="20" width="40" height="30" rx="4" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="35" r="6" stroke="#8B5CF6" stroke-width="2"/>
+                            <path d="M32 35v-8M32 27l-4 4M32 27l4 4" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>💵 Instant Cash Advances</h3>
+                        <ul class="feature-list">
+                            <li>Up to $500 instantly</li>
+                            <li>2-minute approval process</li>
+                            <li>No credit check required</li>
+                            <li>0% APR on first advance</li>
+                            <li>Flexible repayment options</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M22 32h20M32 22v20" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="4" fill="#8B5CF6"/>
+                        </svg>
+                        <h3>🌎 International Remittances</h3>
+                        <ul class="feature-list">
+                            <li>Send to 20+ countries</li>
+                            <li>Transfers in minutes</li>
+                            <li>Best exchange rates guaranteed</li>
+                            <li>Cash pickup or bank deposit</li>
+                            <li>Real-time tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M28 32l4 4 8-8" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>🛡️ Assistance Plans</h3>
+                        <ul class="feature-list">
+                            <li>24/7 roadside assistance</li>
+                            <li>Telehealth consultations</li>
+                            <li>Legal & immigration support</li>
+                            <li>Identity theft protection</li>
+                            <li>Plans from $9.99/month</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="15" y="25" width="34" height="20" rx="3" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M20 35h10M20 38h7" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="39" cy="35" r="5" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>🚗 Auto Insurance</h3>
+                        <ul class="feature-list">
+                            <li>Compare multiple carriers</li>
+                            <li>Save up to 40% on premiums</li>
+                            <li>All driving histories welcome</li>
+                            <li>Instant proof of insurance</li>
+                            <li>$5/month commission per user</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" stroke="#8B5CF6" stroke-width="2"/>
+                            <path d="M28 32l2 2 4-4" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>⚰️ Burial Assistance</h3>
+                        <ul class="feature-list">
+                            <li>Affordable funeral insurance</li>
+                            <li>Coverage from $5K to $25K</li>
+                            <li>No medical exam required</li>
+                            <li>Plans from $15/month</li>
+                            <li>Immediate family coverage</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="20" y="15" width="24" height="34" rx="3" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="6" stroke="#8B5CF6" stroke-width="2"/>
+                            <path d="M32 29v3l2 2" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>🔐 Security & Compliance</h3>
+                        <ul class="feature-list">
+                            <li>256-bit bank-level encryption</li>
+                            <li>Licensed in all 50 states</li>
+                            <li>SOC 2 Type II certified</li>
+                            <li>PCI-DSS compliant</li>
+                            <li>GDPR & CCPA compliant</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="20" cy="25" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="44" cy="25" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="45" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M26 30l3 10M38 30l-3 10" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>🌟 Customer Experience</h3>
+                        <ul class="feature-list">
+                            <li>Bilingual (English/Spanish)</li>
+                            <li>24/7 customer support</li>
+                            <li>Mobile-first design</li>
+                            <li>4.9★ target App Store rating</li>
+                            <li>Instant onboarding</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Rollout Timeline -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>Product Rollout Timeline</h2>
+                <p class="subtitle">Strategic 12-month phased expansion throughout 2026</p>
+
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Phase 1 - Foundation</span>
+                            <h3>Months 1-3: Core Product Launch</h3>
+                            <ul class="feature-list">
+                                <li>Launch instant cash advances (up to $500)</li>
+                                <li>3-person founding team (CEO, COO, CTO only)</li>
+                                <li>Onboard first 10K customers</li>
+                                <li>Establish payment processing & compliance</li>
+                                <li>Optimize underwriting models</li>
+                            </ul>
+                            <div style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Target: 10K users, $2M disbursed, 3-person team</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Phase 2 - Team Expansion & Remittances</span>
+                            <h3>Months 4-6: Hiring & Remittances Launch</h3>
+                            <ul class="feature-list">
+                                <li>Hire engineering, product, compliance teams</li>
+                                <li>Launch remittances to Mexico & Guatemala</li>
+                                <li>Partner with local payout networks</li>
+                                <li>Add 5 more countries (Colombia, El Salvador, Honduras)</li>
+                                <li>Cross-sell to existing cash advance users</li>
+                            </ul>
+                            <div style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Target: 35K users, full team hired, $5M monthly remittance volume</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Phase 3 - Assistance Plans</span>
+                            <h3>Months 7-9: Subscription Services</h3>
+                            <ul class="feature-list">
+                                <li>Launch roadside assistance program</li>
+                                <li>Add telehealth consultations</li>
+                                <li>Legal & immigration support rollout</li>
+                                <li>Identity theft protection</li>
+                                <li>Target 20% subscription attachment rate</li>
+                            </ul>
+                            <div style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Target: 80K users, 16K paid subscribers</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Phase 4 - Insurance</span>
+                            <h3>Months 10-11: Auto & Burial Insurance</h3>
+                            <ul class="feature-list">
+                                <li>Launch auto insurance comparison</li>
+                                <li>Launch burial assistance plans ($5K-$25K)</li>
+                                <li>Partner with 10+ carriers</li>
+                                <li>Instant quote generation</li>
+                                <li>$5/mo commission per auto policy</li>
+                            </ul>
+                            <div style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Target: 150K users, 8K insurance policies</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="phase-badge">Phase 5 - Scale & Optimize</span>
+                            <h3>Month 12: Full Portfolio Optimization</h3>
+                            <ul class="feature-list">
+                                <li>Cross-product optimization</li>
+                                <li>Advanced customer segmentation</li>
+                                <li>Expand to 15+ remittance countries</li>
+                                <li>Launch referral rewards program</li>
+                                <li>Scale burial insurance partnerships</li>
+                            </ul>
+                            <div style="margin-top: 1rem; font-weight: 700; color: var(--primary);">Target: 250K users, all 5 products optimized, path to profitability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Technology Stack -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>Technology Architecture</h2>
+                <p class="subtitle">Enterprise-grade infrastructure powering innovation</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="15" y="20" width="34" height="28" rx="4" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M25 30h14M25 37h14M25 44h10" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Frontend</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            React Native for mobile<br>
+                            Next.js for web<br>
+                            TypeScript<br>
+                            Tailwind CSS
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="20" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="18" cy="44" r="6" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="46" cy="44" r="6" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M32 28v8M32 36l-10 5M32 36l10 5" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>Backend</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            Node.js microservices<br>
+                            GraphQL API<br>
+                            PostgreSQL + Redis<br>
+                            Kafka event streaming
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>AI/ML</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            TensorFlow credit models<br>
+                            Python data pipelines<br>
+                            Real-time fraud detection<br>
+                            NLP for document processing
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <ellipse cx="32" cy="32" rx="20" ry="12" stroke="#6366F1" stroke-width="2"/>
+                            <ellipse cx="32" cy="32" rx="12" ry="20" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="4" fill="#8B5CF6"/>
+                        </svg>
+                        <h3>Cloud & DevOps</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            AWS multi-region<br>
+                            Kubernetes orchestration<br>
+                            CI/CD with GitHub Actions<br>
+                            Terraform IaC
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="15" y="20" width="34" height="28" rx="3" stroke="#6366F1" stroke-width="2"/>
+                            <rect x="15" y="28" width="34" height="8" fill="#8B5CF6" opacity="0.3"/>
+                            <circle cx="27" cy="36" r="4" fill="#8B5CF6"/>
+                        </svg>
+                        <h3>Payments</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            Plaid for bank connections<br>
+                            Stripe for processing<br>
+                            Dwolla for ACH<br>
+                            Real-time settlements
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M20 15h24v10H20z" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M15 30h34v19H15z" stroke="#8B5CF6" stroke-width="2"/>
+                            <circle cx="25" cy="40" r="3" fill="#6366F1"/>
+                            <circle cx="32" cy="40" r="3" fill="#6366F1"/>
+                            <circle cx="39" cy="40" r="3" fill="#6366F1"/>
+                        </svg>
+                        <h3>Monitoring</h3>
+                        <p style="color: var(--gray-600); margin-top: 1rem;">
+                            Datadog APM<br>
+                            Sentry error tracking<br>
+                            Mixpanel analytics<br>
+                            Custom dashboards
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Success Metrics -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+            </div>
+            <div class="content">
+                <h2>Success Metrics & KPIs</h2>
+                <p class="subtitle">12-month targets across all product lines</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-label">User Acquisition</div>
+                        <div class="card-number" data-target="250" data-suffix="K">0K</div>
+                        <div class="card-description">Total users by end of Month 12</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Target CAC: <strong>$35</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Conversion Rate: <strong>12%</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Cash Advances</div>
+                        <div class="card-number" data-target="45" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Total advances disbursed</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Avg Advance: <strong>$300</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Take Rate: <strong>8.5%</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Remittances</div>
+                        <div class="card-number" data-target="60" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Total transfer volume</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Avg Transfer: <strong>$350</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Take Rate: <strong>2.8%</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Subscription Revenue</div>
+                        <div class="card-number" data-target="450" data-prefix="$" data-suffix="K">$0K</div>
+                        <div class="card-description">Monthly recurring from plans</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Subscribers: <strong>30K</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">ARPU: <strong>$15/mo</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Insurance Commissions</div>
+                        <div class="card-number" data-target="600" data-prefix="$" data-suffix="K">$0K</div>
+                        <div class="card-description">Annual commission revenue</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Policies Sold: <strong>10K</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Avg Commission: <strong>$5/mo per user</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Customer Satisfaction</div>
+                        <div class="card-number" data-target="4.8" data-suffix="★">0★</div>
+                        <div class="card-description">App Store rating target</div>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">NPS Score: <strong>65+</strong></div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">Referral Rate: <strong>40%</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Risk Mitigation -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+            </div>
+            <div class="content">
+                <h2>Risk Mitigation Strategy</h2>
+                <p class="subtitle">Proactive approach to managing challenges</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L10 20v20c0 15 10 22 22 24 12-2 22-9 22-24V20L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M25 32l5 5 9-10" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Regulatory Risk</h3>
+                        <ul class="feature-list">
+                            <li>Dedicated compliance team</li>
+                            <li>Regular legal audits</li>
+                            <li>Multi-state licensing</li>
+                            <li>Industry associations</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M32 22v10l7 7" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Credit Risk</h3>
+                        <ul class="feature-list">
+                            <li>Advanced ML models</li>
+                            <li>Conservative underwriting</li>
+                            <li>Portfolio diversification</li>
+                            <li>Early warning systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <rect x="20" y="15" width="24" height="34" rx="3" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="6" stroke="#8B5CF6" stroke-width="2"/>
+                            <path d="M32 29v3l2 2" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Operational Risk</h3>
+                        <ul class="feature-list">
+                            <li>Redundant systems</li>
+                            <li>Disaster recovery plan</li>
+                            <li>24/7 monitoring</li>
+                            <li>Incident response team</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M32 10L12 24v20l20 10 20-10V24L32 10z" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="34" r="6" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>Cybersecurity Risk</h3>
+                        <ul class="feature-list">
+                            <li>Penetration testing</li>
+                            <li>Zero-trust architecture</li>
+                            <li>Encrypted data at rest</li>
+                            <li>Bug bounty program</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <path d="M10 40l12-12 10 8 12-16 10 8" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="22" cy="28" r="3" fill="#8B5CF6"/>
+                            <circle cx="32" cy="36" r="3" fill="#8B5CF6"/>
+                        </svg>
+                        <h3>Market Risk</h3>
+                        <ul class="feature-list">
+                            <li>Flexible pricing models</li>
+                            <li>Multiple revenue streams</li>
+                            <li>Customer research</li>
+                            <li>Competitive monitoring</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <svg class="card-icon" viewBox="0 0 64 64" fill="none">
+                            <circle cx="20" cy="25" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="44" cy="25" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <circle cx="32" cy="45" r="8" stroke="#6366F1" stroke-width="2"/>
+                            <path d="M26 30l3 10M38 30l-3 10" stroke="#8B5CF6" stroke-width="2"/>
+                        </svg>
+                        <h3>Liquidity Risk</h3>
+                        <ul class="feature-list">
+                            <li>Capital reserves</li>
+                            <li>Credit facility partnerships</li>
+                            <li>Stress testing</li>
+                            <li>Cashflow forecasting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Team & Investment -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>Investment & Use of Funds</h2>
+                <p class="subtitle">$4M raise provides 12-month runway to profitability</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-label">Target Raise</div>
+                        <div class="card-number" data-target="4" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Seed/Series A for 12-month runway</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Team Size</div>
+                        <div class="card-number" data-target="16">0</div>
+                        <div class="card-description">Lean, focused team at launch</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Personnel (Year 1)</div>
+                        <div class="card-number" data-target="2.31" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">Salaries + benefits (16 people)</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Marketing & Growth</div>
+                        <div class="card-number" data-target="1.0" data-prefix="$" data-suffix="M">$0M</div>
+                        <div class="card-description">CAC, campaigns, partnerships</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Technology & Infrastructure</div>
+                        <div class="card-number" data-target="400" data-prefix="$" data-suffix="K">$0K</div>
+                        <div class="card-description">AWS, tools, contractors, licenses</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Operations & Compliance</div>
+                        <div class="card-number" data-target="200" data-prefix="$" data-suffix="K">$0K</div>
+                        <div class="card-description">Legal, licensing, audits</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Working Capital</div>
+                        <div class="card-number" data-target="90" data-prefix="$" data-suffix="K">$0K</div>
+                        <div class="card-description">Buffer & contingencies</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--success), var(--primary)); border-radius: 16px; color: white;">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">12-Month Budget Breakdown</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Personnel (58%)</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$2.31M</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Marketing (25%)</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$1.0M</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Technology (10%)</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$400K</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Ops & Legal (5%)</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$200K</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Buffer (2%)</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$90K</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(255,255,255,0.3); text-align: center;">
+                        <div style="font-size: 1rem; opacity: 0.9; margin-bottom: 0.5rem;">Total Year 1 Budget</div>
+                        <div style="font-size: 3rem; font-weight: 900;">$4.00M</div>
+                        <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">12-month runway to cash-flow positive</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem; background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                    <h3 style="margin-bottom: 2rem;">Phased Team Structure & Compensation</h3>
+
+                    <!-- Q1 Team -->
+                    <div style="margin-bottom: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 16px; color: white;">
+                        <h4 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Q1 - Months 1-3 (Founding Team Only)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                            <div>
+                                <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Val Infante - CEO</div>
+                                <div style="font-size: 2rem; font-weight: 800;">$280K</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Pedro Infante - COO</div>
+                                <div style="font-size: 2rem; font-weight: 800;">$250K</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">CTO</div>
+                                <div style="font-size: 2rem; font-weight: 800;">$150K</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Q1 Team Size: 3 people</div>
+                            <div style="font-size: 2rem; font-weight: 800;">$680K/year</div>
+                            <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">Q1 Cost (3 months): $170K</div>
+                        </div>
+                    </div>
+
+                    <!-- Q2-Q4 Team Expansion -->
+                    <div style="margin-bottom: 2rem; padding: 2rem; background: var(--gray-50); border-radius: 16px; border-left: 4px solid var(--primary);">
+                        <h4 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--dark);">Q2-Q4 - Months 4-12 (Full Team Expansion)</h4>
+                        <p style="color: var(--gray-600); margin-bottom: 1rem;">After validating product-market fit in Q1, hire full team:</p>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Engineering (2)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">Frontend & Backend engineers - $240K/yr</span>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Product (2)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">PM & Coordinator - $205K/yr</span>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Compliance (3)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">Head + 2 Managers - $330K/yr</span>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Marketing (2)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">Director + Manager - $235K/yr</span>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Data (1)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">Data Analyst - $85K/yr</span>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 8px;">
+                                <strong style="color: var(--primary);">Customer Care (3)</strong><br>
+                                <span style="color: var(--gray-600); font-size: 0.9rem;">3 bilingual reps - $150K/yr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--dark), var(--primary)); border-radius: 16px; color: white;">
+                        <h4 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Total 12-Month Personnel Budget</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; align-items: center;">
+                            <div>
+                                <div style="font-size: 0.875rem; opacity: 0.9;">Q1 (3 people)</div>
+                                <div style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">$170K</div>
+                                <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">
+                                    3 months of leadership salaries
+                                </div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.875rem; opacity: 0.9;">Q2-Q4 (16 people)</div>
+                                <div style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem;">$1.73M</div>
+                                <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">
+                                    9 months of full team
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.875rem; opacity: 0.9;">Total Personnel (12 months)</div>
+                                <div style="font-size: 2.5rem; font-weight: 800; margin-top: 0.5rem;">$1.90M</div>
+                                <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">
+                                    Base salaries only
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(255,255,255,0.3); text-align: center;">
+                            <div style="font-size: 0.875rem; opacity: 0.9;">Fully Loaded Personnel (w/ Benefits)</div>
+                            <div style="font-size: 3rem; font-weight: 900; margin-top: 0.5rem;">$2.28M</div>
+                            <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem;">+20% for benefits, taxes, recruiting</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--success);">
+                        <h4 style="color: var(--dark); margin-bottom: 1rem;">💡 Compensation Philosophy</h4>
+                        <ul style="color: var(--gray-600); font-size: 0.9rem; line-height: 1.8; margin-left: 1.5rem;">
+                            <li>Competitive base salaries at market rate for fintech startups</li>
+                            <li>Equity grants: 0.25% - 2.5% based on role and seniority</li>
+                            <li>Founders retain majority with significant equity pool for team</li>
+                            <li>Benefits: Health, dental, vision, 401(k) matching (3%)</li>
+                            <li>Flexible remote-first policy with optional co-working stipend</li>
+                            <li>Professional development budget ($2K/year per employee)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Leadership Team -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <h2>Executive Leadership Team</h2>
+                <p class="subtitle">Proven fintech leaders with deep expertise in operations, compliance, and technology</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                    <!-- Val Infante - CEO -->
+                    <div style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid var(--gray-200);">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-right: 1.5rem;"></div>
+                            <div>
+                                <h3 style="margin-bottom: 0.25rem; font-size: 1.75rem;">Val Infante</h3>
+                                <div style="color: var(--primary); font-weight: 700; font-size: 1.1rem;">Chief Executive Officer</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="font-size: 1rem; color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">
+                                Fintech founder and operator with deep experience building, scaling, and operating regulated digital banking and payments platforms across the U.S. and Latin America. Founder and President of MyBambu, a U.S.–LATAM neobank that sustained <strong>$180M+ in monthly payment volume</strong> at scale.
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: 12px;">
+                            <div style="font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;">Built MyBambu End-to-End:</div>
+                            <ul class="feature-list" style="font-size: 0.9rem;">
+                                <li>Processed millions of transactions, $180M+ monthly volume</li>
+                                <li>Oversaw operations, technology, compliance, and growth</li>
+                                <li>Led sponsor bank, card network, and payment rail integrations</li>
+                                <li>Acted as COO, CTO, and CMO during key growth phases</li>
+                                <li>Managed U.S. MSB operations, AML/KYC, multi-corridor LATAM settlement</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <div style="font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; font-size: 0.9rem;">Core Expertise:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                <span style="padding: 0.35rem 0.75rem; background: var(--primary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Neobanking</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--secondary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Cross-Border Payments</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--primary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Sponsor Bank Integration</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--secondary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">MSB/AML/KYC</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--primary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Scaling Ops</span>
+                            </div>
+                        </div>
+
+                        <div style="padding: 1rem; background: linear-gradient(135deg, var(--success), var(--primary)); color: white; border-radius: 12px; margin-top: 1rem;">
+                            <div style="font-size: 0.85rem; opacity: 0.9; margin-bottom: 0.25rem;">Known For</div>
+                            <div style="font-size: 0.9rem; font-weight: 600;">Metrics-driven, execution-focused, hands-on operator with capital-raising & partnership experience</div>
+                        </div>
+                    </div>
+
+                    <!-- Pedro Infante - COO -->
+                    <div style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid var(--gray-200);">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--secondary)); margin-right: 1.5rem;"></div>
+                            <div>
+                                <h3 style="margin-bottom: 0.25rem; font-size: 1.75rem;">Pedro Infante</h3>
+                                <div style="color: var(--accent); font-weight: 700; font-size: 1.1rem;">Chief Operating Officer</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="font-size: 1rem; color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">
+                                Strategic Chief Compliance Officer with 14+ years in FinTech and global payments. Expert in building Compliance Management Systems for MSBs under FinCEN and MTL frameworks.
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: 12px;">
+                            <div style="font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;">Key Achievements at Bambu Systems:</div>
+                            <ul class="feature-list" style="font-size: 0.9rem;">
+                                <li>Mitigated $10M+ in regulatory fines & legal exposure</li>
+                                <li>Managed 70+ compliance professionals globally</li>
+                                <li>Led MTL acquisition across all 50 states</li>
+                                <li>Oversaw BSA/AML for global mobile banking platform</li>
+                                <li>100% audit success, zero major violations</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <div style="font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; font-size: 0.9rem;">Core Expertise:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                <span style="padding: 0.35rem 0.75rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">BSA/AML Compliance</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--secondary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">MSB/MTL Licensing</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">KYC/CIP Programs</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--secondary); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">OFAC Sanctions</span>
+                                <span style="padding: 0.35rem 0.75rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Fraud Prevention</span>
+                            </div>
+                        </div>
+
+                        <div style="padding: 1rem; background: linear-gradient(135deg, var(--warning), var(--accent)); color: white; border-radius: 12px; margin-top: 1rem;">
+                            <div style="font-size: 0.85rem; opacity: 0.9; margin-bottom: 0.25rem;">Education & Certifications</div>
+                            <div style="font-size: 0.9rem; font-weight: 600;">BBA International Business | FATCA | AML | FCPA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 20px; color: white; text-align: center;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.75rem;">Why This Team Wins</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">24+</div>
+                            <div style="font-size: 1rem; opacity: 0.9;">Combined Years in FinTech</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">$3.4B+</div>
+                            <div style="font-size: 1rem; opacity: 0.9;">Payments Processed</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">1M+</div>
+                            <div style="font-size: 1rem; opacity: 0.9;">Customers Served</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">Zero</div>
+                            <div style="font-size: 1rem; opacity: 0.9;">Major Violations</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.15); border-radius: 12px; backdrop-filter: blur(10px);">
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin: 0;">
+                            <strong>Unique Advantage:</strong> One team that's already built, scaled, and operated a successful FinTech platform serving underbanked communities — with deep expertise spanning technology, operations, compliance, and marketing. We know how to navigate regulatory complexity while achieving rapid growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Call to Action -->
+        <section class="slide">
+            <div class="bg-orbs">
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="content">
+                <div class="cta-section">
+                    <h2 style="color: white; margin-bottom: 1rem;">Ready to Build Financial Inclusion</h2>
+                    <p style="font-size: 1.25rem; color: var(--gray-100); max-width: 700px; margin: 0 auto 2rem;">
+                        We're raising <strong>$4M</strong> to launch UniCash, a multi-product financial services platform serving underbanked Latino communities. Join us in capturing a $167B market opportunity.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 3rem auto;">
+                        <div>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--success);">$4M</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Seed/Series A Raise</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--success);">$167B</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Market Opportunity</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--success);">5 Products</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Revenue Streams</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--success);">250K</div>
+                            <div style="color: var(--gray-200); font-weight: 600;">Users by Month 12</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">The Ask</h3>
+                        <p style="color: var(--gray-100); font-size: 1.1rem; line-height: 1.8;">
+                            <strong style="color: var(--success);">✓</strong> Lean team of 16 led by experienced founders<br>
+                            <strong style="color: var(--success);">✓</strong> Val Infante (CEO), Pedro Infante (COO) & CTO with fintech expertise<br>
+                            <strong style="color: var(--success);">✓</strong> 12-month runway to cash-flow positive<br>
+                            <strong style="color: var(--success);">✓</strong> Multiple revenue streams from month one<br>
+                            <strong style="color: var(--success);">✓</strong> Clear path to 250K users in 12 months
+                        </p>
+                    </div>
+
+                    <a href="https://unicash-website.pages.dev/" class="cta-button">Schedule a Meeting</a>
+
+                    <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--gray-300);">
+                        Contact: founders@unicash.com | Prepared by 3JD
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const scrollContainer = document.getElementById('scrollContainer');
+        const slides = document.querySelectorAll('.slide');
+        const navDotsContainer = document.getElementById('navDots');
+
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => {
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+            });
+            navDotsContainer.appendChild(dot);
+        });
+
+        const navDots = document.querySelectorAll('.nav-dot');
+        navDots[0].classList.add('active');
+
+        scrollContainer.addEventListener('scroll', () => {
+            slides.forEach((slide, index) => {
+                const rect = slide.getBoundingClientRect();
+                if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                    navDots.forEach(dot => dot.classList.remove('active'));
+                    navDots[index].classList.add('active');
+                }
+            });
+        });
+
+        function animateCounter(element, target, suffix = '', prefix = '') {
+            const duration = 2000;
+            const start = parseFloat(element.textContent.replace(/[^0-9.]/g, '')) || 0;
+            const increment = (target - start) / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                let displayValue = current;
+                if (target >= 1000 && target < 1000000) {
+                    displayValue = (current / 1000).toFixed(1) + 'K';
+                } else if (target >= 1000000) {
+                    displayValue = (current / 1000000).toFixed(1) + 'M';
+                } else if (target < 100 && target % 1 !== 0) {
+                    displayValue = current.toFixed(1);
+                } else {
+                    displayValue = Math.floor(current);
+                }
+
+                element.textContent = prefix + displayValue + suffix;
+                element.classList.add('counting');
+                setTimeout(() => element.classList.remove('counting'), 100);
+            }, 16);
+        }
+
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-target]');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            const target = parseFloat(counter.dataset.target);
+                            const suffix = counter.dataset.suffix || '';
+                            const prefix = counter.dataset.prefix || '';
+
+                            setTimeout(() => {
+                                animateCounter(counter, target, suffix, prefix);
+                            }, 300);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => observer.observe(slide));
+
+        document.addEventListener('keydown', (e) => {
+            const currentIndex = Array.from(navDots).findIndex(dot => dot.classList.contains('active'));
+            if (e.key === 'ArrowDown' && currentIndex < slides.length - 1) {
+                slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
