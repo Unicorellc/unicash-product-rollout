@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCash - Term Sheet Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            color: #F8FAFC;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #94A3B8;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #F8FAFC;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .deal-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .deal-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .deal-label {
+            font-size: 14px;
+            color: #94A3B8;
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .deal-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #F8FAFC;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+        }
+
+        th {
+            padding: 20px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 16px;
+        }
+
+        tr:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .term-section {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .term-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #EC4899;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .term-number {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .term-content {
+            color: #CBD5E1;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #CBD5E1;
+            line-height: 1.7;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6366F1;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border-left: 4px solid #EC4899;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .highlight-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #EC4899;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .metric-item {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: #94A3B8;
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #F8FAFC;
+        }
+
+        .checkmark {
+            color: #6366F1;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #64748B;
+            font-size: 14px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .contact-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: #94A3B8;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .logo {
+                font-size: 36px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .deal-summary {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">UniCash</div>
+        <div class="subtitle">Term Sheet Summary</div>
+
+        <h1>Series A Seed Round - $4M Raise</h1>
+
+        <div class="deal-summary">
+            <div class="deal-card">
+                <div class="deal-label">Investment Amount</div>
+                <div class="deal-value">$4M</div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-label">Pre-Money Valuation</div>
+                <div class="deal-value">$20M</div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-label">Post-Money Valuation</div>
+                <div class="deal-value">$24M</div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-label">Price Per Share</div>
+                <div class="deal-value">$2.40</div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-label">Security Type</div>
+                <div class="deal-value" style="font-size: 18px;">Series A Preferred</div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-label">Investor Ownership</div>
+                <div class="deal-value">16.67%</div>
+            </div>
+        </div>
+
+        <h2>Key Terms</h2>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">1</span>
+                Liquidation Preference
+            </div>
+            <div class="term-content">
+                <strong>1x Non-Participating Preferred</strong>
+                <ul>
+                    <li>Investors receive their $4M back first in exit/liquidation</li>
+                    <li>Then participate pro-rata with common shareholders (16.67%)</li>
+                    <li>Automatically converts to common if better outcome</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">2</span>
+                Board Composition
+            </div>
+            <div class="term-content">
+                <strong>5-Person Board Structure:</strong>
+                <ul>
+                    <li><strong>2 Founder Seats:</strong> Val Infante (CEO), Pedro Infante (COO)</li>
+                    <li><strong>1 Investor Seat:</strong> Lead investor designee</li>
+                    <li><strong>2 Independent Seats:</strong> Mutually agreed upon</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">3</span>
+                Voting Rights & Protective Provisions
+            </div>
+            <div class="term-content">
+                Major decisions requiring investor approval:
+                <ul>
+                    <li>Sale or merger of the company</li>
+                    <li>New debt exceeding $500,000</li>
+                    <li>Changes to certificate of incorporation</li>
+                    <li>Option pool increases beyond 15%</li>
+                    <li>Issuance of senior securities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">4</span>
+                Anti-Dilution Protection
+            </div>
+            <div class="term-content">
+                <strong>Weighted Average (Broad-Based)</strong>
+                <ul>
+                    <li>Standard protection against down rounds</li>
+                    <li>No protection for stock splits, dividends, or option pool increases</li>
+                    <li>Fair to both founders and investors</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">5</span>
+                Pro-Rata Rights
+            </div>
+            <div class="term-content">
+                <ul>
+                    <li>Investors maintain right to invest in future funding rounds</li>
+                    <li>Ability to maintain 16.67% ownership percentage</li>
+                    <li>Standard for Series A investors</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">6</span>
+                Vesting Schedule
+            </div>
+            <div class="term-content">
+                <strong>Founders:</strong>
+                <ul>
+                    <li>4-year vesting period with 1-year cliff</li>
+                    <li>25% vests after year 1, monthly vesting thereafter</li>
+                    <li>Double-trigger acceleration on change of control</li>
+                </ul>
+                <strong>Employees:</strong>
+                <ul>
+                    <li>4-year vesting period with 1-year cliff</li>
+                    <li>Standard monthly vesting schedule</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">7</span>
+                Information Rights
+            </div>
+            <div class="term-content">
+                <ul>
+                    <li>Quarterly unaudited financial statements</li>
+                    <li>Annual audited financial statements</li>
+                    <li>Annual budget and operating plan</li>
+                    <li>Monthly KPI dashboard (users, revenue, CAC, LTV)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="term-section">
+            <div class="term-title">
+                <span class="term-number">8</span>
+                Drag-Along Rights
+            </div>
+            <div class="term-content">
+                <ul>
+                    <li>If >50% of shareholders approve a sale</li>
+                    <li>Minority shareholders must participate in the transaction</li>
+                    <li>Standard founder and investor protection</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Use of Funds - $4M Allocation</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>%</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Product Development</strong></td>
+                    <td>$1,200,000</td>
+                    <td>30%</td>
+                    <td>Complete 5-product ecosystem</td>
+                </tr>
+                <tr>
+                    <td><strong>Sales & Marketing</strong></td>
+                    <td>$1,400,000</td>
+                    <td>35%</td>
+                    <td>User acquisition (250K target)</td>
+                </tr>
+                <tr>
+                    <td><strong>Operations & Compliance</strong></td>
+                    <td>$600,000</td>
+                    <td>15%</td>
+                    <td>Licensing, compliance, infrastructure</td>
+                </tr>
+                <tr>
+                    <td><strong>Team Expansion</strong></td>
+                    <td>$600,000</td>
+                    <td>15%</td>
+                    <td>Key hires (eng, growth, compliance)</td>
+                </tr>
+                <tr>
+                    <td><strong>Working Capital</strong></td>
+                    <td>$200,000</td>
+                    <td>5%</td>
+                    <td>3-month runway buffer</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="highlight-title">Runway: 18 Months</div>
+            <div class="term-content">
+                This allocation provides sufficient runway to achieve $20M ARR and 250K users, positioning UniCash for a strong Series B raise at $60-100M valuation.
+            </div>
+        </div>
+
+        <h2>12-Month Milestones</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-item">
+                <div class="metric-label">Total Users</div>
+                <div class="metric-value">250,000</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-label">Annual Revenue</div>
+                <div class="metric-value">$20M</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-label">Products Live</div>
+                <div class="metric-value">5</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-label">Monthly Revenue</div>
+                <div class="metric-value">$1.67M</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-label">CAC Payback</div>
+                <div class="metric-value">&lt;6 months</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-label">Gross Margin</div>
+                <div class="metric-value">70%+</div>
+            </div>
+        </div>
+
+        <h2>Market Opportunity</h2>
+
+        <div class="highlight-box">
+            <div class="highlight-title">Total Addressable Market: $167 Billion</div>
+            <div class="term-content">
+                <strong>Target Market:</strong> 62 million underbanked Americans, with initial focus on Latino communities
+                <br><br>
+                <strong>Market Breakdown:</strong>
+                <ul>
+                    <li>Annual US Remittances: $74B</li>
+                    <li>Cash Advance Market: $93B</li>
+                    <li>Market Growth Rate: 18% CAGR</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Competitive Advantages</h2>
+
+        <div class="term-content" style="margin: 20px 0;">
+            <span class="checkmark">✓</span><strong>Bilingual Platform:</strong> English/Spanish, culturally tailored to Latino communities<br>
+            <span class="checkmark">✓</span><strong>Multi-Product Ecosystem:</strong> 5 complementary financial products<br>
+            <span class="checkmark">✓</span><strong>Mobile-First Design:</strong> Optimized for underbanked user behavior<br>
+            <span class="checkmark">✓</span><strong>Experienced Team:</strong> $3.4B+ in payment processing experience<br>
+            <span class="checkmark">✓</span><strong>Scalable Technology:</strong> Modern cloud infrastructure, AI-powered credit models
+        </div>
+
+        <h2>Comparable Companies</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Valuation</th>
+                    <th>Focus</th>
+                    <th>UniCash Advantage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dave</strong></td>
+                    <td>$4B</td>
+                    <td>Cash advances only</td>
+                    <td>Multi-product ecosystem</td>
+                </tr>
+                <tr>
+                    <td><strong>Chime</strong></td>
+                    <td>$25B</td>
+                    <td>Neobank</td>
+                    <td>Targeted community focus</td>
+                </tr>
+                <tr>
+                    <td><strong>Remitly</strong></td>
+                    <td>$7B</td>
+                    <td>Remittances only</td>
+                    <td>5 complementary products</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Next Steps</h2>
+
+        <div class="term-section">
+            <div class="term-title">Due Diligence Timeline</div>
+            <div class="term-content">
+                <strong>Week 1-2:</strong> Financial model, legal entity, IP ownership review<br>
+                <strong>Week 3:</strong> Term sheet negotiation and finalization<br>
+                <strong>Week 4:</strong> Legal documentation and final agreements<br>
+                <strong>Week 5-6:</strong> Closing and wire transfer
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <div class="contact-name">Val Infante, CEO & Co-Founder</div>
+            <div class="contact-info">
+                Email: ucore299@gmail.com<br>
+                Ready to discuss terms and answer questions
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>UniCash</strong> • Serving 62 Million Underbanked Americans<br>
+            Generated January 21, 2026 • Confidential & Proprietary<br>
+            <span style="color: #6366F1;">●</span>
+            <span style="color: #8B5CF6;">●</span>
+            <span style="color: #EC4899;">●</span>
+        </div>
+    </div>
+</body>
+</html>
