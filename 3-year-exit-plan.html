@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCash - 3-Year Exit Strategy & Financial Forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #EC4899;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #0F172A 100%);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 100px 40px 40px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 80px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--light);
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-300);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-highlight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border: 2px solid var(--primary);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        th {
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: white;
+        }
+
+        td {
+            padding: 0.875rem 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .positive {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .negative {
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .highlight-row {
+            background: rgba(99, 102, 241, 0.2);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .section-row {
+            background: rgba(139, 92, 246, 0.2);
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Stats Grid */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-300);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-description {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            margin-top: 0.5rem;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--success);
+            color: #D1FAE5;
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: var(--warning);
+            color: #FEF3C7;
+        }
+
+        .alert-info {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+            color: #E0E7FF;
+        }
+
+        /* CV Cards */
+        .cv-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--primary);
+        }
+
+        .cv-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cv-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            background: var(--gray-700);
+        }
+
+        .cv-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cv-section {
+            margin-top: 2rem;
+        }
+
+        .cv-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .cv-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .cv-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .cv-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 16px;
+            bottom: -2rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        /* Glossary */
+        .glossary-term {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .glossary-term dt {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .glossary-term dd {
+            color: var(--gray-300);
+            margin-left: 0;
+            line-height: 1.6;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+            .container {
+                padding-top: 20px;
+            }
+            .card {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            .stat-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cv-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">UniCash</div>
+            <ul class="nav-links">
+                <li><a href="#executive-summary">Summary</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#financials">Financials</a></li>
+                <li><a href="#revenue">Revenue</a></li>
+                <li><a href="#cac">CAC Analysis</a></li>
+                <li><a href="#competition">Competition</a></li>
+                <li><a href="#valuation">Valuation</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#glossary">Glossary</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="section">
+            <h1>UniCash: 3-Year Exit Strategy</h1>
+            <p class="subtitle">Building America's Fastest-Growing Fintech for Immigrants → $150M-$300M Exit in 36 Months</p>
+
+            <div class="card card-highlight">
+                <h3>Investment Thesis: The Quick Exit Play</h3>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--gray-200); margin-bottom: 2rem;">
+                    UniCash is positioned for a <strong style="color: var(--primary);">strategic acquisition in 24-36 months</strong> by banks, payment processors, or fintechs seeking instant access to the $167B underbanked Hispanic market. Built by the team that scaled MyBambu from 0 to 1.2M users and $3B+ in payment volume, UniCash targets break-even in 9 months and $100M+ exit valuation by Year 3.
+                </p>
+
+                <div class="stat-grid">
+                    <div class="stat-box" style="border-color: var(--success);">
+                        <div class="stat-label">Target Exit Timeline</div>
+                        <div class="stat-value positive">24-36 Mo</div>
+                        <div class="stat-description">Strategic acquisition window</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--primary);">
+                        <div class="stat-label">Exit Valuation Range</div>
+                        <div class="stat-value">$150-300M</div>
+                        <div class="stat-description">Based on 1M users, $50M ARR</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--secondary);">
+                        <div class="stat-label">Break-Even Timeline</div>
+                        <div class="stat-value">9 Months</div>
+                        <div class="stat-description">Self-sustaining by Month 9</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--accent);">
+                        <div class="stat-label">Capital Efficiency</div>
+                        <div class="stat-value">$3.5M</div>
+                        <div class="stat-description">To break-even + scale</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--success);">
+                        <div class="stat-label">Year 3 Users</div>
+                        <div class="stat-value positive">1M+</div>
+                        <div class="stat-description">Proven acquisition engine</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--success);">
+                        <div class="stat-label">Year 3 ARR</div>
+                        <div class="stat-value positive">$50M+</div>
+                        <div class="stat-description">$407 annual ARPU</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>✓ Why This Exits Fast:</strong> Rare combination of (1) massive TAM ($167B), (2) proven team with MyBambu track record, (3) capital-efficient path to profitability, (4) strategic value to banks/payment processors needing Hispanic market access, (5) defensible CAC under $35 (lowest in fintech).
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Most Likely Acquirers (Strategic Rationale)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Acquirer Type</th>
+                            <th>Strategic Value</th>
+                            <th>Comparable Deals</th>
+                            <th style="text-align: right;">Likely Valuation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Major Banks (e.g., Chase, Wells Fargo, BofA)</strong></td>
+                            <td>Instant 62M Hispanic customer access, avoid 3-5 year build</td>
+                            <td>Chase acquired WePay ($400M), BofA invested in Zelle</td>
+                            <td style="text-align: right;" class="positive">$200-300M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment Processors (PayPal, Block, Stripe)</strong></td>
+                            <td>LATAM cross-border + US remittance rails, expand TAM</td>
+                            <td>PayPal acquired Xoom ($1.1B), Block acquired Afterpay ($29B)</td>
+                            <td style="text-align: right;" class="positive">$150-250M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Neobanks (Chime, Current, Varo)</strong></td>
+                            <td>Underserved demographic expansion, proven CAC model</td>
+                            <td>SoFi acquired Technisys ($1.1B for tech stack)</td>
+                            <td style="text-align: right;" class="positive">$150-200M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LATAM Fintechs (Nubank, Mercado Pago)</strong></td>
+                            <td>US market entry, existing LATAM customer base synergy</td>
+                            <td>Nubank raised $750M at $30B valuation, expanding to Mexico</td>
+                            <td style="text-align: right;" class="positive">$200-300M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Executive Team -->
+        <section id="team" class="section">
+            <h2>Executive Team: Proven Fintech Operators</h2>
+
+            <div class="cv-card">
+                <div class="cv-header">
+                    <div class="cv-photo"></div>
+                    <div>
+                        <div class="cv-name">Val Infante</div>
+                        <div class="cv-title">Co-Founder & CEO</div>
+                        <p style="color: var(--gray-300); margin-top: 0.5rem; font-size: 1rem;">
+                            📧 valinfante10@gmail.com | 📍 West Palm Beach, FL | 🌐 LinkedIn: val-infante-5ba81978
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>MyBambu Track Record (2018-2025)</h4>
+                    <ul class="cv-list">
+                        <li><strong>President of Operations, CMO & CTO</strong> — Led MyBambu to become #1 fintech for immigrants in the U.S.</li>
+                        <li><strong>Scaled from 0 to 1.2M+ accounts</strong> — 150% YoY growth (300K → 1.2M users)</li>
+                        <li><strong>Processed $3B+ in payments</strong> — 50M+ transactions with 99.9% uptime</li>
+                        <li><strong>Achieved CAC under $35</strong> — Lowest in fintech (industry avg: $150-300)</li>
+                        <li><strong>Built entire tech stack</strong> — AWS infrastructure, mobile apps, payment rails, fraud detection</li>
+                        <li><strong>Secured 50+ state MTL licenses</strong> — Full US compliance and regulatory expertise</li>
+                        <li><strong>Grew to $180M+ monthly volume</strong> — Sustainable, profitable operations</li>
+                    </ul>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Core Expertise</h4>
+                    <ul class="cv-list">
+                        <li><strong>Product & Technology:</strong> Built full-stack neobanking platform, mobile apps (iOS/Android), payment processing, KYC/AML systems</li>
+                        <li><strong>Operations & Compliance:</strong> MSB operations, sponsor bank integration, 50+ state licenses, PCI-DSS, SOC 2</li>
+                        <li><strong>Marketing & Growth:</strong> Organic growth strategies, community building, CAC optimization, influencer partnerships</li>
+                        <li><strong>Team Leadership:</strong> Managed 70+ person teams across engineering, ops, marketing, compliance</li>
+                    </ul>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Recognition & Media</h4>
+                    <ul class="cv-list">
+                        <li><strong>Forbes Colombia (2024):</strong> Featured profile on building fintech for immigrant financial inclusion</li>
+                        <li><strong>American Banker (2024):</strong> Most Influential in Fintech</li>
+                        <li><strong>Hispanic Executive (2023):</strong> Top 10 Hispanic Tech Leaders</li>
+                        <li><strong>South Florida Business Journal (2023):</strong> 40 Under 40</li>
+                        <li><strong>Fintech Breakthrough Awards (2024):</strong> Best Neobank Solution (MyBambu)</li>
+                    </ul>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Previous Experience</h4>
+                    <ul class="cv-list">
+                        <li><strong>St. Jude Children's Research Hospital (2014-2017):</strong> Fundraising Manager, generated $25M+ through integrated campaigns, supported $800M+ annual fundraising operation</li>
+                        <li><strong>Financial Services (2010-2013):</strong> Banking operations, customer acquisition, community financial services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-header">
+                    <div class="cv-photo"></div>
+                    <div>
+                        <div class="cv-name">Pedro Infante</div>
+                        <div class="cv-title">Co-Founder & COO</div>
+                        <p style="color: var(--gray-300); margin-top: 0.5rem; font-size: 1rem;">
+                            📧 pinfante@unicash.com | 📍 Miami, FL
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>MyBambu & Fintech Experience</h4>
+                    <ul class="cv-list">
+                        <li><strong>Senior Operations Leader at MyBambu</strong> — Scaled operations from 0 to 1.2M users alongside Val</li>
+                        <li><strong>Compliance & Regulatory Expert</strong> — Managed MTL licensing across 50+ states, MSB compliance</li>
+                        <li><strong>Customer Operations at Scale</strong> — Built customer support, fraud prevention, dispute resolution for millions of transactions</li>
+                        <li><strong>Cross-Border Payments</strong> — Managed remittance operations to 18 LATAM countries</li>
+                        <li><strong>Vendor & Partner Management</strong> — Negotiated contracts with sponsor banks, payment processors, KYC providers</li>
+                    </ul>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Core Expertise</h4>
+                    <ul class="cv-list">
+                        <li><strong>Operations Excellence:</strong> Process optimization, vendor management, cost reduction, team scaling</li>
+                        <li><strong>Risk & Compliance:</strong> AML/KYC programs, fraud detection, regulatory reporting, audit management</li>
+                        <li><strong>Financial Services:</strong> Underwriting, credit risk, collections, payment processing</li>
+                        <li><strong>Customer Experience:</strong> Support operations, dispute resolution, retention strategies</li>
+                    </ul>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Why Pedro + Val = Winning Team</h4>
+                    <ul class="cv-list">
+                        <li><strong>Complementary Skills:</strong> Val (Product/Tech/Marketing) + Pedro (Operations/Compliance/Risk) = Full-stack leadership</li>
+                        <li><strong>Proven Partnership:</strong> Already scaled MyBambu together from 0 to $3B+ in volume</li>
+                        <li><strong>Immigrant Founders:</strong> Deep understanding of customer pain points, authentic community connection</li>
+                        <li><strong>Speed to Market:</strong> No learning curve—can execute Day 1 with existing playbook and network</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>✓ Team Advantage:</strong> This isn't a first-time founder story. Val and Pedro have already built America's largest fintech for immigrants from scratch. They know the playbook, have the relationships (banks, processors, regulators), and can execute 3x faster than competitors. <strong>The team IS the moat.</strong>
+            </div>
+        </section>
+
+        <!-- 3-Year Financial Forecast -->
+        <section id="financials" class="section">
+            <h2>3-Year Financial Forecast</h2>
+            <p class="subtitle">Path to $50M ARR, $15M Net Income, and 1M+ Users by Year 3</p>
+
+            <div class="card">
+                <h3>Year-Over-Year Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th style="text-align: right;">Year 1</th>
+                            <th style="text-align: right;">Year 2</th>
+                            <th style="text-align: right;">Year 3</th>
+                            <th style="text-align: right;">CAGR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-row">
+                            <td colspan="5">USER METRICS</td>
+                        </tr>
+                        <tr>
+                            <td>Total Users</td>
+                            <td style="text-align: right;">150,000</td>
+                            <td style="text-align: right;">600,000</td>
+                            <td style="text-align: right;">1,200,000</td>
+                            <td style="text-align: right;">214%</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Active Users (MAU)</td>
+                            <td style="text-align: right;">120,000 (80%)</td>
+                            <td style="text-align: right;">510,000 (85%)</td>
+                            <td style="text-align: right;">1,020,000 (85%)</td>
+                            <td style="text-align: right;">218%</td>
+                        </tr>
+                        <tr>
+                            <td>New Users per Month (Avg)</td>
+                            <td style="text-align: right;">12,500</td>
+                            <td style="text-align: right;">37,500</td>
+                            <td style="text-align: right;">50,000</td>
+                            <td style="text-align: right;">100%</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">REVENUE</td>
+                        </tr>
+                        <tr>
+                            <td>Total Revenue</td>
+                            <td style="text-align: right;">$10.1M</td>
+                            <td style="text-align: right;">$29.5M</td>
+                            <td style="text-align: right;">$58.8M</td>
+                            <td style="text-align: right;">141%</td>
+                        </tr>
+                        <tr>
+                            <td>Annual ARPU</td>
+                            <td style="text-align: right;">$203</td>
+                            <td style="text-align: right;">$343</td>
+                            <td style="text-align: right;">$407</td>
+                            <td style="text-align: right;">42%</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Recurring Revenue (MRR)</td>
+                            <td style="text-align: right;">$350K</td>
+                            <td style="text-align: right;">$1,890K</td>
+                            <td style="text-align: right;">$4,200K</td>
+                            <td style="text-align: right;">201%</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">PROFITABILITY</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Profit</td>
+                            <td style="text-align: right;">$5.9M</td>
+                            <td style="text-align: right;">$17.7M</td>
+                            <td style="text-align: right;">$35.3M</td>
+                            <td style="text-align: right;">149%</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Margin</td>
+                            <td style="text-align: right;">58%</td>
+                            <td style="text-align: right;">60%</td>
+                            <td style="text-align: right;">60%</td>
+                            <td style="text-align: right;">—</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Expenses</td>
+                            <td style="text-align: right;">$4.1M</td>
+                            <td style="text-align: right;">$8.5M</td>
+                            <td style="text-align: right;">$14.0M</td>
+                            <td style="text-align: right;">85%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Net Income</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$1.8M</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$9.2M</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$21.3M</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>261%</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Net Margin</td>
+                            <td style="text-align: right;">18%</td>
+                            <td style="text-align: right;">31%</td>
+                            <td style="text-align: right;">36%</td>
+                            <td style="text-align: right;">—</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">CASH FLOW & BALANCE SHEET</td>
+                        </tr>
+                        <tr>
+                            <td>Cash from Operations</td>
+                            <td style="text-align: right;">$1.8M</td>
+                            <td style="text-align: right;">$9.2M</td>
+                            <td style="text-align: right;">$21.3M</td>
+                            <td style="text-align: right;">261%</td>
+                        </tr>
+                        <tr>
+                            <td>Ending Cash Balance</td>
+                            <td style="text-align: right;">$4.4M</td>
+                            <td style="text-align: right;">$13.6M</td>
+                            <td style="text-align: right;">$34.9M</td>
+                            <td style="text-align: right;">209%</td>
+                        </tr>
+                        <tr>
+                            <td>Capital Raised (Cumulative)</td>
+                            <td style="text-align: right;">$3.5M</td>
+                            <td style="text-align: right;">$3.5M</td>
+                            <td style="text-align: right;">$3.5M</td>
+                            <td style="text-align: right;">—</td>
+                        </tr>
+
+                        <tr class="section-row">
+                            <td colspan="5">KEY METRICS</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Acquisition Cost (CAC)</td>
+                            <td style="text-align: right;">$35</td>
+                            <td style="text-align: right;">$32</td>
+                            <td style="text-align: right;">$28</td>
+                            <td style="text-align: right;">—</td>
+                        </tr>
+                        <tr>
+                            <td>CAC Payback Period</td>
+                            <td style="text-align: right;">2.1 months</td>
+                            <td style="text-align: right;">1.1 months</td>
+                            <td style="text-align: right;">0.8 months</td>
+                            <td style="text-align: right;">—</td>
+                        </tr>
+                        <tr>
+                            <td>LTV (3-year)</td>
+                            <td style="text-align: right;">$609</td>
+                            <td style="text-align: right;">$1,029</td>
+                            <td style="text-align: right;">$1,221</td>
+                            <td style="text-align: right;">42%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>LTV / CAC Ratio</strong></td>
+                            <td style="text-align: right;"><strong>17.4x</strong></td>
+                            <td style="text-align: right;"><strong>32.2x</strong></td>
+                            <td style="text-align: right;"><strong>43.6x</strong></td>
+                            <td style="text-align: right;"><strong>—</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>✓ Capital Efficiency:</strong> Entire 3-year plan requires only $3.5M in total capital. Company becomes cash-flow positive in Month 9 and self-funds all growth thereafter. Ends Year 3 with $34.9M cash and $21.3M annual profit—no additional fundraising needed.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Quarterly Breakdown - Year 1</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th style="text-align: right;">Q1</th>
+                            <th style="text-align: right;">Q2</th>
+                            <th style="text-align: right;">Q3</th>
+                            <th style="text-align: right;">Q4</th>
+                            <th style="text-align: right;">Year 1 Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ending Users</td>
+                            <td style="text-align: right;">10,000</td>
+                            <td style="text-align: right;">35,000</td>
+                            <td style="text-align: right;">80,000</td>
+                            <td style="text-align: right;">150,000</td>
+                            <td style="text-align: right;">150,000</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue</td>
+                            <td style="text-align: right;">$170K</td>
+                            <td style="text-align: right;">$790K</td>
+                            <td style="text-align: right;">$1,895K</td>
+                            <td style="text-align: right;">$7,245K</td>
+                            <td style="text-align: right;">$10,100K</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Profit (58%)</td>
+                            <td style="text-align: right;">$99K</td>
+                            <td style="text-align: right;">$458K</td>
+                            <td style="text-align: right;">$1,099K</td>
+                            <td style="text-align: right;">$4,202K</td>
+                            <td style="text-align: right;">$5,858K</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Expenses</td>
+                            <td style="text-align: right;">$424K</td>
+                            <td style="text-align: right;">$1,008K</td>
+                            <td style="text-align: right;">$1,083K</td>
+                            <td style="text-align: right;">$1,583K</td>
+                            <td style="text-align: right;">$4,098K</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Net Income</strong></td>
+                            <td style="text-align: right;" class="negative">($325K)</td>
+                            <td style="text-align: right;" class="negative">($550K)</td>
+                            <td style="text-align: right;" class="positive">$16K</td>
+                            <td style="text-align: right;" class="positive">$2,619K</td>
+                            <td style="text-align: right;" class="positive">$1,760K</td>
+                        </tr>
+                        <tr>
+                            <td>Cumulative Cash</td>
+                            <td style="text-align: right;">$3,175K</td>
+                            <td style="text-align: right;">$2,625K</td>
+                            <td style="text-align: right;">$2,641K</td>
+                            <td style="text-align: right;">$4,401K</td>
+                            <td style="text-align: right;">$4,401K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Revenue by Product -->
+        <section id="revenue" class="section">
+            <h2>Revenue Breakdown by Product (3-Year)</h2>
+            <p class="subtitle">Diversified revenue streams with predictable, recurring cash flow</p>
+
+            <div class="card">
+                <h3>Year 1: Revenue by Product</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th style="text-align: right;">Users Adopted</th>
+                            <th style="text-align: right;">Adoption Rate</th>
+                            <th style="text-align: right;">ARPU/Mo</th>
+                            <th style="text-align: right;">Annual Revenue</th>
+                            <th style="text-align: right;">% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cash Advances</strong></td>
+                            <td style="text-align: right;">90,000</td>
+                            <td style="text-align: right;">60%</td>
+                            <td style="text-align: right;">$19.13</td>
+                            <td style="text-align: right;" class="positive">$7,593K</td>
+                            <td style="text-align: right;">75%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Take Rate: 8.5% | Avg Advance: $250 | Frequency: 1.5x/mo</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remittances</strong></td>
+                            <td style="text-align: right;">60,000</td>
+                            <td style="text-align: right;">40%</td>
+                            <td style="text-align: right;">$9.80</td>
+                            <td style="text-align: right;" class="positive">$2,352K</td>
+                            <td style="text-align: right;">23%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Take Rate: 2.8% | Avg Send: $350 | Frequency: 2.5x/mo</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assistance Plans</strong></td>
+                            <td style="text-align: right;">0</td>
+                            <td style="text-align: right;">0%</td>
+                            <td style="text-align: right;">$0</td>
+                            <td style="text-align: right;">$0</td>
+                            <td style="text-align: right;">0%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Launches Year 2 Q1</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insurance Commissions</strong></td>
+                            <td style="text-align: right;">5,000</td>
+                            <td style="text-align: right;">3.3%</td>
+                            <td style="text-align: right;">$1.50</td>
+                            <td style="text-align: right;" class="positive">$155K</td>
+                            <td style="text-align: right;">2%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Soft launch Q4 only</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>TOTAL YEAR 1</strong></td>
+                            <td style="text-align: right;"><strong>150,000</strong></td>
+                            <td style="text-align: right;"><strong>—</strong></td>
+                            <td style="text-align: right;"><strong>$16.92</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$10,100K</strong></td>
+                            <td style="text-align: right;"><strong>100%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Year 2: Revenue by Product (All Products Live)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th style="text-align: right;">Users Adopted</th>
+                            <th style="text-align: right;">Adoption Rate</th>
+                            <th style="text-align: right;">ARPU/Mo</th>
+                            <th style="text-align: right;">Annual Revenue</th>
+                            <th style="text-align: right;">% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cash Advances</strong></td>
+                            <td style="text-align: right;">360,000</td>
+                            <td style="text-align: right;">60%</td>
+                            <td style="text-align: right;">$19.13</td>
+                            <td style="text-align: right;" class="positive">$16,848K</td>
+                            <td style="text-align: right;">57%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remittances</strong></td>
+                            <td style="text-align: right;">240,000</td>
+                            <td style="text-align: right;">40%</td>
+                            <td style="text-align: right;">$9.80</td>
+                            <td style="text-align: right;" class="positive">$7,056K</td>
+                            <td style="text-align: right;">24%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assistance Plans</strong></td>
+                            <td style="text-align: right;">210,000</td>
+                            <td style="text-align: right;">35%</td>
+                            <td style="text-align: right;">$3.50</td>
+                            <td style="text-align: right;" class="positive">$4,410K</td>
+                            <td style="text-align: right;">15%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Subscription: $9.99/mo | Roadside, telehealth, legal</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insurance Commissions</strong></td>
+                            <td style="text-align: right;">120,000</td>
+                            <td style="text-align: right;">20%</td>
+                            <td style="text-align: right;">$1.50</td>
+                            <td style="text-align: right;" class="positive">$1,080K</td>
+                            <td style="text-align: right;">4%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">15% commission on $50 avg premium</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>TOTAL YEAR 2</strong></td>
+                            <td style="text-align: right;"><strong>600,000</strong></td>
+                            <td style="text-align: right;"><strong>—</strong></td>
+                            <td style="text-align: right;"><strong>$28.58</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$29,394K</strong></td>
+                            <td style="text-align: right;"><strong>100%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Year 3: Revenue by Product (Full Maturity)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th style="text-align: right;">Users Adopted</th>
+                            <th style="text-align: right;">Adoption Rate</th>
+                            <th style="text-align: right;">ARPU/Mo</th>
+                            <th style="text-align: right;">Annual Revenue</th>
+                            <th style="text-align: right;">% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cash Advances</strong></td>
+                            <td style="text-align: right;">720,000</td>
+                            <td style="text-align: right;">60%</td>
+                            <td style="text-align: right;">$19.13</td>
+                            <td style="text-align: right;" class="positive">$32,400K</td>
+                            <td style="text-align: right;">55%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remittances</strong></td>
+                            <td style="text-align: right;">480,000</td>
+                            <td style="text-align: right;">40%</td>
+                            <td style="text-align: right;">$9.80</td>
+                            <td style="text-align: right;" class="positive">$14,112K</td>
+                            <td style="text-align: right;">24%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assistance Plans</strong></td>
+                            <td style="text-align: right;">420,000</td>
+                            <td style="text-align: right;">35%</td>
+                            <td style="text-align: right;">$3.50</td>
+                            <td style="text-align: right;" class="positive">$8,820K</td>
+                            <td style="text-align: right;">15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insurance Commissions</strong></td>
+                            <td style="text-align: right;">240,000</td>
+                            <td style="text-align: right;">20%</td>
+                            <td style="text-align: right;">$1.50</td>
+                            <td style="text-align: right;" class="positive">$3,240K</td>
+                            <td style="text-align: right;">6%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>TOTAL YEAR 3</strong></td>
+                            <td style="text-align: right;"><strong>1,200,000</strong></td>
+                            <td style="text-align: right;"><strong>—</strong></td>
+                            <td style="text-align: right;"><strong>$33.93</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$58,572K</strong></td>
+                            <td style="text-align: right;"><strong>100%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>✓ Predictable Revenue Mix:</strong> By Year 3, 21% of revenue is recurring (subscriptions + insurance MRR), providing stable cash flow. Transaction-based revenue (cash advances + remittances) remains dominant at 79%, demonstrating high engagement and daily active usage.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Revenue Growth Drivers (3-Year Summary)</h3>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Year 1 → Year 2 Growth</div>
+                        <div class="stat-value positive">+191%</div>
+                        <div class="stat-description">$10.1M → $29.4M</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Year 2 → Year 3 Growth</div>
+                        <div class="stat-value positive">+99%</div>
+                        <div class="stat-description">$29.4M → $58.6M</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">ARPU Growth (Y1 → Y3)</div>
+                        <div class="stat-value">+100%</div>
+                        <div class="stat-description">$16.92 → $33.93/mo</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">MRR by Year 3</div>
+                        <div class="stat-value positive">$4.2M</div>
+                        <div class="stat-description">21% recurring revenue</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAC Analysis -->
+        <section id="cac" class="section">
+            <h2>Customer Acquisition Cost (CAC) Analysis</h2>
+            <p class="subtitle">Achieving industry-leading $28-35 CAC through MyBambu playbook</p>
+
+            <div class="card">
+                <h3>CAC Benchmark: UniCash vs. Competition</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>CAC</th>
+                            <th>Payback Period</th>
+                            <th>LTV/CAC</th>
+                            <th>Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(16, 185, 129, 0.2);">
+                            <td><strong>UniCash (Target)</strong></td>
+                            <td class="positive"><strong>$28-35</strong></td>
+                            <td class="positive"><strong>0.8-2.1 mo</strong></td>
+                            <td class="positive"><strong>17-44x</strong></td>
+                            <td>Organic + community-driven (MyBambu playbook)</td>
+                        </tr>
+                        <tr>
+                            <td>Chime</td>
+                            <td>$150-200</td>
+                            <td>6-9 months</td>
+                            <td>8-12x</td>
+                            <td>Paid ads, influencer partnerships</td>
+                        </tr>
+                        <tr>
+                            <td>Dave</td>
+                            <td>$200-250</td>
+                            <td>8-12 months</td>
+                            <td>5-8x</td>
+                            <td>Heavy TV/digital advertising</td>
+                        </tr>
+                        <tr>
+                            <td>Current</td>
+                            <td>$120-180</td>
+                            <td>5-8 months</td>
+                            <td>10-15x</td>
+                            <td>Referral program + paid media</td>
+                        </tr>
+                        <tr>
+                            <td>Varo</td>
+                            <td>$180-220</td>
+                            <td>7-10 months</td>
+                            <td>7-10x</td>
+                            <td>Digital ads, partnerships</td>
+                        </tr>
+                        <tr>
+                            <td>MoneyLion</td>
+                            <td>$160-200</td>
+                            <td>6-9 months</td>
+                            <td>8-12x</td>
+                            <td>Content marketing + paid</td>
+                        </tr>
+                        <tr style="background: rgba(245, 158, 11, 0.1);">
+                            <td><em>Industry Average</em></td>
+                            <td><em>$150-300</em></td>
+                            <td><em>6-12 months</em></td>
+                            <td><em>8-15x</em></td>
+                            <td><em>Paid acquisition heavy</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>✓ CAC Advantage:</strong> UniCash targets $28-35 CAC, which is <strong>77-88% lower than industry average</strong>. This is possible because Val achieved this exact CAC at MyBambu through authentic community building, organic social, influencer partnerships, and word-of-mouth in Hispanic communities.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>CAC Breakdown by Channel (Year 1-3 Mix)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Acquisition Channel</th>
+                            <th style="text-align: right;">% of Users</th>
+                            <th style="text-align: right;">CAC</th>
+                            <th style="text-align: right;">Payback (Mo)</th>
+                            <th>Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Organic Social (TikTok, IG)</strong></td>
+                            <td style="text-align: right;">35%</td>
+                            <td style="text-align: right;" class="positive">$0-5</td>
+                            <td style="text-align: right;">0-0.5</td>
+                            <td>Viral content, community stories, founder-led</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Referral Program</strong></td>
+                            <td style="text-align: right;">25%</td>
+                            <td style="text-align: right;" class="positive">$15-20</td>
+                            <td style="text-align: right;">0.5-1.0</td>
+                            <td>$10 referral bonus both sides, high virality</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Micro-Influencers</strong></td>
+                            <td style="text-align: right;">20%</td>
+                            <td style="text-align: right;">$25-35</td>
+                            <td style="text-align: right;">1.0-1.5</td>
+                            <td>Hispanic influencers, authentic testimonials</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paid Social (Meta Ads)</strong></td>
+                            <td style="text-align: right;">15%</td>
+                            <td style="text-align: right;">$60-80</td>
+                            <td style="text-align: right;">2.5-3.5</td>
+                            <td>Retargeting, lookalikes, Spanish-language</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Search</strong></td>
+                            <td style="text-align: right;">5%</td>
+                            <td style="text-align: right;">$50-70</td>
+                            <td style="text-align: right;">2.0-3.0</td>
+                            <td>High-intent keywords (cash advance, remittance)</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>BLENDED CAC</strong></td>
+                            <td style="text-align: right;"><strong>100%</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$28-35</strong></td>
+                            <td style="text-align: right;"><strong>0.8-2.1</strong></td>
+                            <td><strong>60% organic/referral, 40% paid</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>CAC Evolution (Year 1-3)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th style="text-align: right;">CAC</th>
+                            <th style="text-align: right;">Monthly ARPU</th>
+                            <th style="text-align: right;">Gross Profit/User/Mo</th>
+                            <th style="text-align: right;">Payback Period</th>
+                            <th style="text-align: right;">LTV (3-Year)</th>
+                            <th style="text-align: right;">LTV/CAC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Year 1</strong></td>
+                            <td style="text-align: right;">$35</td>
+                            <td style="text-align: right;">$16.92</td>
+                            <td style="text-align: right;">$9.81</td>
+                            <td style="text-align: right;">3.6 months</td>
+                            <td style="text-align: right;">$609</td>
+                            <td style="text-align: right;">17.4x</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 2</strong></td>
+                            <td style="text-align: right;">$32</td>
+                            <td style="text-align: right;">$28.58</td>
+                            <td style="text-align: right;">$17.15</td>
+                            <td style="text-align: right;">1.9 months</td>
+                            <td style="text-align: right;">$1,029</td>
+                            <td style="text-align: right;">32.2x</td>
+                        </tr>
+                        <tr style="background: rgba(16, 185, 129, 0.15);">
+                            <td><strong>Year 3</strong></td>
+                            <td style="text-align: right;" class="positive">$28</td>
+                            <td style="text-align: right;" class="positive">$33.93</td>
+                            <td style="text-align: right;" class="positive">$20.36</td>
+                            <td style="text-align: right;" class="positive">1.4 months</td>
+                            <td style="text-align: right;" class="positive">$1,221</td>
+                            <td style="text-align: right;" class="positive">43.6x</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info">
+                    <strong>📊 CAC Improves Over Time:</strong> CAC decreases from $35 → $28 (-20%) while ARPU doubles from $16.92 → $33.93 (+100%) due to product maturity and cross-sell. By Year 3, payback is just 1.4 months and LTV/CAC reaches 43.6x—best-in-class fintech economics.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Marketing Budget & User Acquisition (3-Year Plan)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th style="text-align: right;">Marketing Spend</th>
+                            <th style="text-align: right;">New Users</th>
+                            <th style="text-align: right;">Blended CAC</th>
+                            <th style="text-align: right;">% of Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Year 1</strong></td>
+                            <td style="text-align: right;">$1,000K</td>
+                            <td style="text-align: right;">150,000</td>
+                            <td style="text-align: right;">$35</td>
+                            <td style="text-align: right;">10%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Focus: Community building, referral program, influencer partnerships</td>
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 2</strong></td>
+                            <td style="text-align: right;">$2,800K</td>
+                            <td style="text-align: right;">450,000</td>
+                            <td style="text-align: right;">$32</td>
+                            <td style="text-align: right;">10%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Scale: Paid social, SEO, partnerships, maintain organic momentum</td>
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 3</strong></td>
+                            <td style="text-align: right;">$4,200K</td>
+                            <td style="text-align: right;">600,000</td>
+                            <td style="text-align: right;">$28</td>
+                            <td style="text-align: right;">7%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Optimize: Lower CAC through brand, word-of-mouth, product virality</td>
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>3-YEAR TOTAL</strong></td>
+                            <td style="text-align: right;"><strong>$8,000K</strong></td>
+                            <td style="text-align: right;"><strong>1,200,000</strong></td>
+                            <td style="text-align: right;"><strong>$32 avg</strong></td>
+                            <td style="text-align: right;"><strong>8%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Competition Analysis -->
+        <section id="competition" class="section">
+            <h2>Competitive Landscape</h2>
+            <p class="subtitle">Direct competitors, indirect competitors, and market positioning</p>
+
+            <div class="card">
+                <h3>Direct Competitors (Hispanic-Focused Fintech)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>Users</th>
+                            <th>Products</th>
+                            <th>Strengths</th>
+                            <th>Weaknesses</th>
+                            <th>UniCash Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MyBambu</strong></td>
+                            <td>1.2M</td>
+                            <td>Banking, remittances, cards</td>
+                            <td>Brand recognition, large user base, LATAM reach</td>
+                            <td>Limited product suite, no insurance/assistance plans</td>
+                            <td>Broader product suite, faster product velocity, lower CAC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Majority</strong></td>
+                            <td>500K+</td>
+                            <td>Banking, credit builder, financial education</td>
+                            <td>Credit building focus, education content</td>
+                            <td>No cash advances, limited remittances, higher CAC</td>
+                            <td>Cash advances (instant liquidity), better remittance pricing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Greenlight</strong></td>
+                            <td>6M+</td>
+                            <td>Family banking, kids accounts</td>
+                            <td>Strong parental controls, education focus</td>
+                            <td>Family-only, no cash advances/remittances, different market</td>
+                            <td>Adult-focused, immediate financial needs (cash, remittances)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ualá (LATAM)</strong></td>
+                            <td>5M+ (ARG, MEX)</td>
+                            <td>Banking, cards, loans, investments</td>
+                            <td>Large LATAM presence, mature product</td>
+                            <td>Weak US presence, no US-LATAM remittances focus</td>
+                            <td>US-first with LATAM reach, cross-border advantage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Indirect Competitors (Mainstream Neobanks)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>Valuation</th>
+                            <th>Users</th>
+                            <th>Key Differentiator</th>
+                            <th>Why They Won't Win Hispanic Market</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Chime</strong></td>
+                            <td>$25B (2021)</td>
+                            <td>13M+</td>
+                            <td>No fees, early direct deposit</td>
+                            <td>English-only, no remittances, no cultural relevance, high CAC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current</strong></td>
+                            <td>$2.2B (2021)</td>
+                            <td>4M+</td>
+                            <td>Teen/young adult focus, faster payments</td>
+                            <td>Different demographic, no cross-border, generic marketing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dave</strong></td>
+                            <td>$1.3B (SPAC 2022)</td>
+                            <td>10M+</td>
+                            <td>Cash advances, budgeting tools</td>
+                            <td>High CAC ($200+), no remittances, not Hispanic-focused</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Varo</strong></td>
+                            <td>$2.5B (2020)</td>
+                            <td>5M+</td>
+                            <td>Full bank charter, savings accounts</td>
+                            <td>Complex banking model, slow product velocity, no specialty</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Market Insight:</strong> Mainstream neobanks have not cracked the Hispanic market despite massive funding. Chime ($25B valuation) has <5% Hispanic penetration. The market requires cultural understanding, bilingual support, remittance rails, and community trust—exactly what Val built at MyBambu.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>UniCash Competitive Positioning</h3>
+                <div class="stat-grid">
+                    <div class="stat-box" style="border-color: var(--success);">
+                        <div class="stat-label">CAC Advantage</div>
+                        <div class="stat-value positive">5x Lower</div>
+                        <div class="stat-description">$35 vs. $150-300 competitors</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--primary);">
+                        <div class="stat-label">Product Breadth</div>
+                        <div class="stat-value">5 Products</div>
+                        <div class="stat-description">vs. 1-3 for competitors</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--secondary);">
+                        <div class="stat-label">Team Experience</div>
+                        <div class="stat-value">1.2M</div>
+                        <div class="stat-description">Users scaled at MyBambu</div>
+                    </div>
+                    <div class="stat-box" style="border-color: var(--accent);">
+                        <div class="stat-label">Market Share Target</div>
+                        <div class="stat-value">2%</div>
+                        <div class="stat-description">Of 62M underbanked</div>
+                    </div>
+                </div>
+
+                <h4>Why UniCash Wins</h4>
+                <ul class="cv-list">
+                    <li><strong>Proven Team:</strong> Val & Pedro already executed this playbook at MyBambu—competitors are unproven in Hispanic market</li>
+                    <li><strong>Lower CAC:</strong> $35 vs. $150-300 industry average = 5x capital efficiency advantage</li>
+                    <li><strong>Product Velocity:</strong> Launching 5 products in 18 months vs. competitors' 3-5 year roadmaps</li>
+                    <li><strong>Cultural Authenticity:</strong> Immigrant founders who understand the customer pain firsthand</li>
+                    <li><strong>Strategic Value:</strong> Acquirers get instant 1M+ Hispanic user base vs. building from scratch</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Valuation & Exit Scenarios -->
+        <section id="valuation" class="section">
+            <h2>Valuation & Exit Scenarios</h2>
+            <p class="subtitle">$150M-$300M strategic acquisition in 24-36 months</p>
+
+            <div class="card card-highlight">
+                <h3>Exit Valuation Framework (Year 3)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valuation Method</th>
+                            <th>Multiple</th>
+                            <th>Year 3 Metric</th>
+                            <th style="text-align: right;">Implied Valuation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Revenue Multiple (ARR)</strong></td>
+                            <td>3-5x ARR</td>
+                            <td>$58.6M ARR</td>
+                            <td style="text-align: right;" class="positive">$176-293M</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Comparable: Chime trades at ~4x ARR, Dave at 2-3x ARR</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>EBITDA Multiple</strong></td>
+                            <td>10-15x EBITDA</td>
+                            <td>$21.3M EBITDA</td>
+                            <td style="text-align: right;" class="positive">$213-320M</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Fintech acquisitions: 10-20x EBITDA (SoFi, PayPal, Block deals)</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost per User (Strategic)</strong></td>
+                            <td>$150-250 per user</td>
+                            <td>1.2M users</td>
+                            <td style="text-align: right;" class="positive">$180-300M</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">PayPal paid $218/user for Xoom, Chase paid ~$200/user for WePay</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>CONSENSUS VALUATION RANGE</strong></td>
+                            <td colspan="2"><strong>Average of 3 Methods</strong></td>
+                            <td style="text-align: right;" class="positive"><strong>$190-304M</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>✓ Conservative Exit Target:</strong> $150-300M valuation range by Month 24-36 based on 1M+ users, $50M+ ARR, and strategic value to acquirers. Represents 43-86x return on $3.5M seed investment.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Comparable M&A Transactions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Deal</th>
+                            <th>Acquirer</th>
+                            <th>Year</th>
+                            <th>Price</th>
+                            <th>Users</th>
+                            <th>$/User</th>
+                            <th>Strategic Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Xoom → PayPal</strong></td>
+                            <td>PayPal</td>
+                            <td>2015</td>
+                            <td>$1.1B</td>
+                            <td>1.3M</td>
+                            <td>$846</td>
+                            <td>Cross-border payments, remittances</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Credit Karma → Intuit</strong></td>
+                            <td>Intuit</td>
+                            <td>2020</td>
+                            <td>$7.1B</td>
+                            <td>100M+</td>
+                            <td>$71</td>
+                            <td>Financial services expansion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plaid → Visa (failed)</strong></td>
+                            <td>Visa</td>
+                            <td>2020</td>
+                            <td>$5.3B</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Fintech infrastructure, data access</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WePay → Chase</strong></td>
+                            <td>JPMorgan</td>
+                            <td>2017</td>
+                            <td>$400M</td>
+                            <td>~2M</td>
+                            <td>$200</td>
+                            <td>SMB payment processing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Earnest → Navient</strong></td>
+                            <td>Navient</td>
+                            <td>2017</td>
+                            <td>$155M</td>
+                            <td>200K</td>
+                            <td>$775</td>
+                            <td>Student loan refinancing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simple → BBVA</strong></td>
+                            <td>BBVA</td>
+                            <td>2014</td>
+                            <td>$117M</td>
+                            <td>100K</td>
+                            <td>$1,170</td>
+                            <td>Digital banking platform</td>
+                        </tr>
+                        <tr style="background: rgba(16, 185, 129, 0.1);">
+                            <td><strong>UniCash (Projected)</strong></td>
+                            <td><em>TBD</em></td>
+                            <td>2028</td>
+                            <td class="positive"><strong>$150-300M</strong></td>
+                            <td>1.2M</td>
+                            <td class="positive"><strong>$125-250</strong></td>
+                            <td>Hispanic market access, proven team, profitable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Exit Scenario Analysis</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Timeline</th>
+                            <th>Users</th>
+                            <th>ARR</th>
+                            <th>Valuation</th>
+                            <th>Return on $3.5M</th>
+                            <th>Likelihood</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(16, 185, 129, 0.2);">
+                            <td><strong>Best Case: Strategic Premium</strong></td>
+                            <td>24 months</td>
+                            <td>800K</td>
+                            <td>$40M</td>
+                            <td class="positive">$300-400M</td>
+                            <td class="positive">86-114x</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Bidding war between bank + payment processor, rapid user growth</td>
+                            <td colspan="6"></td>
+                        </tr>
+                        <tr style="background: rgba(99, 102, 241, 0.15);">
+                            <td><strong>Base Case: Strategic Acquisition</strong></td>
+                            <td>30 months</td>
+                            <td>1M</td>
+                            <td>$50M</td>
+                            <td class="positive">$200-250M</td>
+                            <td class="positive">57-71x</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">Target scenario: Bank or LATAM fintech acquires for Hispanic market access</td>
+                            <td colspan="6"></td>
+                        </tr>
+                        <tr style="background: rgba(245, 158, 11, 0.15);">
+                            <td><strong>Conservative: Financial Buyer</strong></td>
+                            <td>36 months</td>
+                            <td>1.2M</td>
+                            <td>$58M</td>
+                            <td class="positive">$150-175M</td>
+                            <td class="positive">43-50x</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">PE firm or growth equity, lower multiple but highly profitable business</td>
+                            <td colspan="6"></td>
+                        </tr>
+                        <tr style="background: rgba(239, 68, 68, 0.1);">
+                            <td><strong>Downside: Independent Growth</strong></td>
+                            <td>No exit</td>
+                            <td>1.5M+</td>
+                            <td>$75M+</td>
+                            <td>$100-150M</td>
+                            <td>29-43x</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td class="indent" style="font-size: 0.85rem; color: var(--gray-400);">No suitable acquirer, continue as independent, raise Series B to scale further</td>
+                            <td colspan="6"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info">
+                    <strong>📊 Expected Value:</strong> Weighted average of scenarios = $222M exit valuation, representing 63x return on $3.5M seed investment in 24-30 months. Even conservative case delivers 43-50x returns.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Why This Exits Fast (24-36 Months)</h3>
+                <ul class="cv-list">
+                    <li><strong>Strategic Value to Banks:</strong> Instant access to 1M+ Hispanic customers, avoiding 3-5 year build + $20-50M cost</li>
+                    <li><strong>Payment Processor Play:</strong> UniCash becomes on/off-ramp for US-LATAM money movement (PayPal bought Xoom for this)</li>
+                    <li><strong>LATAM Fintech Entry:</strong> Nubank, Mercado Pago, Ualá all need US presence—UniCash provides turnkey entry</li>
+                    <li><strong>Proven Team De-Risks:</strong> Val & Pedro already built MyBambu to 1.2M users—acquirers know they can execute</li>
+                    <li><strong>Profitable = Attractive:</strong> Break-even in 9 months, $21M+ profit by Year 3—rare in fintech, highly attractive to acquirers</li>
+                    <li><strong>Regulatory Moat:</strong> 50+ state MTL licenses, compliance infrastructure worth $5-10M alone</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Product Roadmap -->
+        <section id="roadmap" class="section">
+            <h2>3-Year Product Roadmap</h2>
+            <p class="subtitle">Strategic product launches timed for maximum user value and exit positioning</p>
+
+            <div class="card">
+                <h3>Product Launch Timeline</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Month 1: Cash Advances Launch</h4>
+                        <p><strong>Goal:</strong> Prove product-market fit, achieve first revenue</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>0% APR cash advances up to $500</li>
+                            <li>2-minute approval, instant funding</li>
+                            <li>8.5% take rate (industry-leading pricing)</li>
+                            <li><strong>Target:</strong> 5,000 users, $96K revenue in Month 1</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 4: Remittances Launch</h4>
+                        <p><strong>Goal:</strong> Add cross-border revenue, increase ARPU</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>Send to 20+ LATAM countries</li>
+                            <li>$0.85-3.50 per transfer (vs. $9-12 competitors)</li>
+                            <li>35-minute delivery, real-time tracking</li>
+                            <li><strong>Target:</strong> 40% adoption, $9.80 incremental ARPU</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 9: Break-Even Milestone 🎯</h4>
+                        <p><strong>Achievement:</strong> Cash-flow positive, self-sustaining growth</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>80,000 total users</li>
+                            <li>$1.2M monthly revenue</li>
+                            <li>$254K monthly profit</li>
+                            <li><strong>Validation:</strong> Proven unit economics, ready to scale</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 13 (Year 2 Q1): Assistance Plans Launch</h4>
+                        <p><strong>Goal:</strong> Add recurring MRR, increase stickiness</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>Roadside assistance ($9.99/mo)</li>
+                            <li>Telehealth ($9.99/mo)</li>
+                            <li>Legal assistance ($9.99/mo)</li>
+                            <li><strong>Target:</strong> 35% adoption, $3.50 incremental ARPU</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 18 (Year 2 Q2): Insurance Launch</h4>
+                        <p><strong>Goal:</strong> Add high-margin revenue stream</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>Auto insurance comparison (15% commission)</li>
+                            <li>Burial insurance ($5K-25K coverage)</li>
+                            <li>Partner with top carriers (Progressive, Allstate, etc.)</li>
+                            <li><strong>Target:</strong> 20% adoption, $1.50 incremental ARPU</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 24 (Year 2 End): Series A / Exit Readiness</h4>
+                        <p><strong>Milestone:</strong> Positioned for strategic acquisition or Series A</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>600,000 users, all 5 products live</li>
+                            <li>$29.5M ARR, $9.2M annual profit</li>
+                            <li>Proven playbook, defensible CAC, strong retention</li>
+                            <li><strong>Decision Point:</strong> Accept acquisition or raise Series A to continue growth</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Month 30-36 (Year 3): Strategic Exit Window</h4>
+                        <p><strong>Optimal Exit:</strong> 1M+ users, $50M+ ARR, $20M+ profit</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li>1.2M total users across 5 products</li>
+                            <li>$58.6M ARR with 60% gross margin</li>
+                            <li>$21.3M annual profit (36% net margin)</li>
+                            <li><strong>Target:</strong> $150-300M strategic acquisition by bank, payment processor, or LATAM fintech</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Post-Launch Product Enhancements (Year 2-3)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quarter</th>
+                            <th>Feature/Enhancement</th>
+                            <th>Impact</th>
+                            <th>Resources</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Y2 Q1</strong></td>
+                            <td>Credit Building Tool</td>
+                            <td>Report cash advance repayments to credit bureaus, increase retention</td>
+                            <td>1 engineer, 2 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y2 Q2</strong></td>
+                            <td>Bill Pay Integration</td>
+                            <td>Pay utilities, rent directly from app—increase stickiness</td>
+                            <td>1 engineer, 2 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y2 Q3</strong></td>
+                            <td>Savings Goals</td>
+                            <td>Automated savings, financial wellness—reduce churn</td>
+                            <td>1 engineer, 1 month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y2 Q4</strong></td>
+                            <td>Referral 2.0</td>
+                            <td>Gamified referrals, leaderboards—drive organic growth</td>
+                            <td>1 engineer, 1 month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y3 Q1</strong></td>
+                            <td>Crypto On-Ramp (Optional)</td>
+                            <td>Buy Bitcoin/USDC, send crypto to LATAM—differentiate</td>
+                            <td>2 engineers, 3 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Y3 Q2</strong></td>
+                            <td>B2B Payroll (Optional)</td>
+                            <td>Partner with employers for payroll advances—enterprise revenue</td>
+                            <td>2 engineers, 3 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Glossary -->
+        <section id="glossary" class="section">
+            <h2>Glossary of Terms</h2>
+
+            <dl>
+                <div class="glossary-term">
+                    <dt>ARR (Annual Recurring Revenue)</dt>
+                    <dd>Total annualized value of recurring revenue contracts. For UniCash, calculated as monthly revenue × 12.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>ARPU (Average Revenue Per User)</dt>
+                    <dd>Average monthly revenue generated per user across all products. UniCash target: $33.93/month by Year 3.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>CAC (Customer Acquisition Cost)</dt>
+                    <dd>Total marketing and sales expenses divided by number of new users acquired in that period. UniCash target: $28-35.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>Churn Rate</dt>
+                    <dd>Percentage of users who stop using the product in a given period. Target: <8% monthly.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>EBITDA</dt>
+                    <dd>Earnings Before Interest, Taxes, Depreciation, and Amortization. A measure of operating profitability.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>Gross Margin</dt>
+                    <dd>Percentage of revenue remaining after subtracting cost of revenue (COGS). UniCash target: 58-60%.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>LTV (Lifetime Value)</dt>
+                    <dd>Total profit expected from a user over their entire lifetime. Calculated as: ARPU × Gross Margin × Average Customer Lifespan.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>LTV/CAC Ratio</dt>
+                    <dd>Lifetime value divided by customer acquisition cost. Healthy SaaS: >3x. UniCash target: 17-44x.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>MAU (Monthly Active Users)</dt>
+                    <dd>Number of unique users who engage with the product at least once per month. Target: 80-85% of total users.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>MRR (Monthly Recurring Revenue)</dt>
+                    <dd>Predictable monthly revenue from subscriptions and recurring products (assistance plans, insurance).</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>MTL (Money Transmitter License)</dt>
+                    <dd>State-level license required to transmit money, including remittances and cash advances. UniCash needs 50+ state licenses.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>Net Margin</dt>
+                    <dd>Net income as a percentage of revenue. Shows bottom-line profitability. UniCash target: 18% Year 1, 36% Year 3.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>Payback Period</dt>
+                    <dd>Number of months to recover CAC from gross profit. Formula: CAC ÷ (ARPU × Gross Margin). UniCash: 0.8-2.1 months.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>Take Rate</dt>
+                    <dd>Percentage of transaction value kept as revenue. Cash advances: 8.5%, Remittances: 2.8%.</dd>
+                </div>
+
+                <div class="glossary-term">
+                    <dt>TAM (Total Addressable Market)</dt>
+                    <dd>Total revenue opportunity if UniCash achieved 100% market share. 62M underbanked Americans × average spend = $167B TAM.</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- Footer -->
+        <div style="margin-top: 4rem; padding: 3rem; background: rgba(255, 255, 255, 0.05); border-radius: 20px; text-align: center; border: 2px solid var(--primary);">
+            <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Ready to Build the Next $300M Fintech Exit?</h3>
+            <p style="color: var(--gray-300); font-size: 1.1rem; line-height: 1.8; max-width: 900px; margin: 0 auto 2rem;">
+                UniCash combines a <strong>proven team</strong> (1.2M users at MyBambu), <strong>capital efficiency</strong> ($3.5M to break-even), and <strong>strategic value</strong> (instant Hispanic market access) to create a compelling 24-36 month exit opportunity at $150-300M valuation.
+            </p>
+            <div style="padding: 2rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 16px; color: white;">
+                <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">Contact the Founders</p>
+                <p style="font-size: 1rem; line-height: 2;">
+                    <strong>Val Infante</strong> — CEO<br>
+                    📧 valinfante10@gmail.com<br>
+                    🔗 <a href="https://www.linkedin.com/in/val-infante-5ba81978" style="color: white; text-decoration: underline;">LinkedIn</a>
+                </p>
+                <p style="font-size: 1rem; line-height: 2; margin-top: 1.5rem;">
+                    <strong>Pedro Infante</strong> — COO<br>
+                    📧 pinfante@unicash.com
+                </p>
+            </div>
+            <p style="margin-top: 2rem; color: var(--gray-400); font-size: 0.875rem;">
+                UniCash 3-Year Exit Plan | Prepared January 2026<br>
+                Confidential & Proprietary
+            </p>
+        </div>
+    </div>
+</body>
+</html>
