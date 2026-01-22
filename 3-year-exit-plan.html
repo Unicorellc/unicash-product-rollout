@@ -39,63 +39,88 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
-        .nav {
+        /* Sidebar Navigation */
+        .sidebar {
             position: fixed;
-            top: 0;
             left: 0;
-            right: 0;
-            background: rgba(30, 41, 59, 0.95);
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(30, 41, 59, 0.98);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-right: 2px solid var(--primary);
+            overflow-y: auto;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary);
+            padding: 2rem 0;
         }
 
-        .nav-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .sidebar-logo {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
         }
 
-        .nav-logo {
+        .sidebar-logo h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.75rem;
+            font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        .sidebar-logo p {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav {
             list-style: none;
         }
 
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
+        .sidebar-nav li {
+            margin-bottom: 0.25rem;
         }
 
-        .nav-links a:hover {
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: var(--gray-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        .sidebar-nav a.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 700;
+        }
+
+        .sidebar-nav .nav-icon {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
         }
 
         /* Container */
         .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 100px 40px 40px;
+            max-width: 1400px;
+            margin-left: 280px;
+            padding: 40px;
         }
 
         /* Sections */
@@ -420,23 +445,18 @@
             line-height: 1.6;
         }
 
-        /* Print Styles */
-        @media print {
-            .nav {
-                display: none;
-            }
-            .container {
-                padding-top: 20px;
-            }
-            .card {
-                page-break-inside: avoid;
-            }
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 2px solid var(--primary);
+            }
+            .container {
+                margin-left: 0;
+                padding: 20px;
             }
             h1 {
                 font-size: 2rem;
@@ -445,33 +465,49 @@
                 font-size: 1.75rem;
             }
             .stat-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             .cv-header {
                 flex-direction: column;
                 text-align: center;
             }
         }
+
+        @media print {
+            .sidebar {
+                display: none;
+            }
+            .container {
+                margin-left: 0;
+                padding-top: 20px;
+            }
+            .card {
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">UniCash</div>
-            <ul class="nav-links">
-                <li><a href="#executive-summary">Summary</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#financials">Financials</a></li>
-                <li><a href="#revenue">Revenue</a></li>
-                <li><a href="#cac">CAC Analysis</a></li>
-                <li><a href="#competition">Competition</a></li>
-                <li><a href="#valuation">Valuation</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#glossary">Glossary</a></li>
-            </ul>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <h1>UniCash</h1>
+            <p>3-Year Exit Strategy</p>
         </div>
-    </nav>
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="#executive-summary"><span class="nav-icon">📊</span>Executive Summary</a></li>
+                <li><a href="#team"><span class="nav-icon">👥</span>Executive Team</a></li>
+                <li><a href="#financials"><span class="nav-icon">💰</span>3-Year Financials</a></li>
+                <li><a href="#revenue"><span class="nav-icon">📈</span>Revenue by Product</a></li>
+                <li><a href="#cac"><span class="nav-icon">🎯</span>CAC Analysis</a></li>
+                <li><a href="#competition"><span class="nav-icon">🥊</span>Competition</a></li>
+                <li><a href="#valuation"><span class="nav-icon">💎</span>Valuation & Exit</a></li>
+                <li><a href="#roadmap"><span class="nav-icon">🗺️</span>Product Roadmap</a></li>
+                <li><a href="#glossary"><span class="nav-icon">📖</span>Glossary</a></li>
+            </ul>
+        </nav>
+    </aside>
 
     <div class="container">
         <!-- Executive Summary -->
