@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCash - Year 1 Startup Plan: Minimum Viable Raise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #296BFF;
+            --secondary: #27FB6B;
+            --accent: #0D1752;
+            --success: #27FB6B;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #0D1752;
+            --light: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #374151;
+            --gray-700: #1F2937;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFFFFF;
+            color: #111827;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0;
+            width: 280px; height: 100vh;
+            background: #FFFFFF;
+            border-right: 1px solid var(--gray-200);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 2rem 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-logo {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-logo p {
+            font-size: 0.75rem;
+            color: #4B5563;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-nav { list-style: none; }
+        .sidebar-nav li { margin-bottom: 0.25rem; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: rgba(41, 107, 255, 0.05);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        .sidebar-nav .nav-icon { margin-right: 0.75rem; font-size: 1.1rem; }
+        .sidebar-nav .nav-label { flex: 1; }
+
+        .sidebar-back {
+            padding: 0.75rem 1.5rem;
+            margin: 0 1rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 8px;
+            background: rgba(41, 107, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-back:hover { background: rgba(41, 107, 255, 0.12); }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 3rem 4rem;
+            max-width: 1100px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a2d6d 50%, var(--primary) 100%);
+            color: white;
+            padding: 4rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(39,251,107,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(39,251,107,0.15);
+            color: var(--secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(39,251,107,0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--secondary), #01CFFB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* TL;DR Cards */
+        .tldr-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tldr-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tldr-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .tldr-card .tldr-amount {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .tldr-card .tldr-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .tldr-card .tldr-desc {
+            font-size: 0.85rem;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        .tldr-card.minimum .tldr-amount { color: var(--danger); }
+        .tldr-card.lean .tldr-amount { color: var(--warning); }
+        .tldr-card.recommended .tldr-amount { color: var(--success); }
+
+        .tldr-card.recommended {
+            border-color: rgba(39,251,107,0.4);
+            background: rgba(39,251,107,0.04);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .section-number {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .section-header h2 small {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        thead th {
+            background: var(--dark);
+            color: white;
+            padding: 1rem;
+            font-weight: 700;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+
+        thead th:first-child { border-radius: 11px 0 0 0; }
+        thead th:last-child { border-radius: 0 11px 0 0; }
+
+        tbody td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        tbody tr:hover { background: rgba(41, 107, 255, 0.03); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+        .positive { color: #059669; }
+        .negative { color: var(--danger); }
+        .bold-row { font-weight: 800; background: var(--gray-50) !important; }
+        .highlight-row { background: rgba(39,251,107,0.06) !important; font-weight: 700; }
+
+        /* Scenario Cards */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-card {
+            border: 2px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .scenario-card.best {
+            border-color: rgba(39,251,107,0.5);
+            background: rgba(39,251,107,0.03);
+        }
+
+        .scenario-badge {
+            position: absolute;
+            top: -12px; right: 20px;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .scenario-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .scenario-card .raise-amount {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin: 0.75rem 0;
+        }
+
+        .scenario-card .scenario-details {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .scenario-card .scenario-details li {
+            padding: 0.4rem 0;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--gray-600);
+        }
+
+        .scenario-card .scenario-details .check { color: var(--success); font-weight: bold; }
+        .scenario-card .scenario-details .cross { color: var(--danger); font-weight: bold; }
+        .scenario-card .scenario-details .warn { color: var(--warning); font-weight: bold; }
+
+        .risk-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-top: 0.5rem;
+        }
+
+        .risk-high { background: rgba(239,68,68,0.1); color: var(--danger); }
+        .risk-med { background: rgba(245,158,11,0.1); color: var(--warning); }
+        .risk-low { background: rgba(39,251,107,0.15); color: #059669; }
+
+        /* Cost Category Cards */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cost-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 14px;
+            padding: 1.75rem;
+        }
+
+        .cost-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cost-card .cost-total {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .cost-card ul {
+            list-style: none;
+        }
+
+        .cost-card ul li {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            padding: 0.3rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cost-card ul li span { font-weight: 600; color: var(--gray-900); }
+
+        /* Waterfall / Cash Flow Chart */
+        .cash-chart {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cash-chart h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.5rem;
+            height: 280px;
+            padding-bottom: 2rem;
+            position: relative;
+            border-bottom: 2px solid var(--gray-300);
+        }
+
+        .bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .bar {
+            width: 70%;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            min-height: 4px;
+        }
+
+        .bar.positive-bar { background: linear-gradient(180deg, var(--primary), #4d8bff); }
+        .bar.negative-bar { background: linear-gradient(180deg, #f87171, var(--danger)); }
+        .bar.green-bar { background: linear-gradient(180deg, var(--secondary), #1ad45a); }
+
+        .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .bar-label {
+            margin-top: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-align: center;
+        }
+
+        /* Danger line */
+        .danger-line {
+            position: absolute;
+            left: 0; right: 0;
+            border-top: 2px dashed var(--danger);
+            z-index: 5;
+        }
+
+        .danger-label {
+            position: absolute;
+            right: 0;
+            top: -18px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--danger);
+            background: white;
+            padding: 0 0.3rem;
+        }
+
+        /* Callout Boxes */
+        .callout {
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .callout-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .callout h4 {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .callout p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--gray-600);
+        }
+
+        .callout.info {
+            background: rgba(41,107,255,0.06);
+            border: 1px solid rgba(41,107,255,0.15);
+        }
+
+        .callout.warning {
+            background: rgba(245,158,11,0.06);
+            border: 1px solid rgba(245,158,11,0.15);
+        }
+
+        .callout.success {
+            background: rgba(39,251,107,0.06);
+            border: 1px solid rgba(39,251,107,0.2);
+        }
+
+        .callout.danger {
+            background: rgba(239,68,68,0.05);
+            border: 1px solid rgba(239,68,68,0.15);
+        }
+
+        /* Milestone Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.35rem;
+            top: 0.2rem;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            z-index: 2;
+        }
+
+        .timeline-dot.green { border-color: var(--secondary); color: var(--secondary); }
+        .timeline-dot.orange { border-color: var(--warning); color: var(--warning); }
+
+        .timeline-content h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .timeline-metrics {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-metric {
+            font-size: 0.8rem;
+        }
+
+        .timeline-metric strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        /* Bottom Line / Final Answer */
+        .bottom-line {
+            background: linear-gradient(135deg, var(--dark), #1a2d6d);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-line::after {
+            content: '';
+            position: absolute;
+            bottom: -30%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(39,251,107,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .bottom-line h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .bottom-line-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bottom-line-item .bl-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .bottom-line-item .bl-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .bottom-line-item .bl-value.green {
+            color: var(--secondary);
+        }
+
+        .bottom-line-item .bl-note {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        /* Comparison Table Highlights */
+        .compare-header {
+            background: var(--primary) !important;
+        }
+
+        .best-col {
+            background: rgba(39,251,107,0.06);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .tldr-grid, .scenario-grid, .cost-grid { grid-template-columns: 1fr; }
+            .bottom-line-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
+
+        /* Print */
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; }
+            .hero { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        /* Funding allocation bar */
+        .alloc-bar {
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 40px;
+            margin-bottom: 0.75rem;
+        }
+
+        .alloc-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .alloc-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .alloc-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        .alloc-dot {
+            width: 10px; height: 10px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Assumption chips */
+        .assumptions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .assumption-chip {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .assumption-chip .a-icon {
+            width: 28px; height: 28px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            background: rgba(41,107,255,0.1);
+        }
+
+        .assumption-chip .a-text {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        .assumption-chip .a-text strong {
+            color: var(--gray-900);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+    <div class="sidebar-logo">
+        <h1>UniCash</h1>
+        <p>Year 1 Startup Plan</p>
+    </div>
+
+    <a href="index.html" class="sidebar-back">&larr; Back to Overview</a>
+
+    <ul class="sidebar-nav">
+        <li><a href="#tldr" class="active"><span class="nav-icon">&#9889;</span><span class="nav-label">TL;DR</span></a></li>
+        <li><a href="#scenarios"><span class="nav-icon">&#128200;</span><span class="nav-label">Raise Scenarios</span></a></li>
+        <li><a href="#non-negotiables"><span class="nav-icon">&#128274;</span><span class="nav-label">Non-Negotiable Costs</span></a></li>
+        <li><a href="#monthly-cashflow"><span class="nav-icon">&#128176;</span><span class="nav-label">Monthly Cash Flow</span></a></li>
+        <li><a href="#lean-budget"><span class="nav-icon">&#9986;</span><span class="nav-label">Lean Budget</span></a></li>
+        <li><a href="#team"><span class="nav-icon">&#128101;</span><span class="nav-label">Team Build</span></a></li>
+        <li><a href="#milestones"><span class="nav-icon">&#127937;</span><span class="nav-label">Milestones</span></a></li>
+        <li><a href="#product-sequence"><span class="nav-icon">&#128640;</span><span class="nav-label">Product Sequence</span></a></li>
+        <li><a href="#risks"><span class="nav-icon">&#9888;</span><span class="nav-label">Risk Matrix</span></a></li>
+        <li><a href="#comparison"><span class="nav-icon">&#128203;</span><span class="nav-label">Full Comparison</span></a></li>
+        <li><a href="#bottom-line"><span class="nav-icon">&#127919;</span><span class="nav-label">Bottom Line</span></a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-badge">YEAR 1 MINIMUM VIABLE RAISE ANALYSIS</div>
+        <h1>What's the <span>minimum</span><br>we need to raise?</h1>
+        <p>A rigorous, bottom-up analysis of UniCash's Year 1 capital requirements. Three scenarios from bare-bones survival to optimal execution, with month-by-month cash flows.</p>
+    </div>
+
+    <!-- TL;DR -->
+    <section class="section" id="tldr">
+        <div class="section-header">
+            <div class="section-number">1</div>
+            <h2><small>Executive Summary</small>The Short Answer</h2>
+        </div>
+
+        <div class="tldr-grid">
+            <div class="tldr-card minimum">
+                <div class="tldr-label">Absolute Floor</div>
+                <div class="tldr-amount">$2.1M</div>
+                <div class="tldr-desc">Skeleton crew, 2 products only, zero margin for error. High failure risk.</div>
+            </div>
+            <div class="tldr-card lean">
+                <div class="tldr-label">Lean Start</div>
+                <div class="tldr-amount">$3.2M</div>
+                <div class="tldr-desc">Core team, 3 products, modest buffer. Viable but tight.</div>
+            </div>
+            <div class="tldr-card recommended">
+                <div class="tldr-label">Recommended Minimum</div>
+                <div class="tldr-amount">$4.0M</div>
+                <div class="tldr-desc">Full Year 1 execution with proper buffer and all 5 products. De-risked.</div>
+            </div>
+        </div>
+
+        <div class="callout info">
+            <div class="callout-icon">&#128161;</div>
+            <div>
+                <h4>Why Not the Full $7M?</h4>
+                <p>The 3-Year Exit Plan raises $7M across 4 tranches. But $2M of that (Tranche 4) is Year 2 growth capital. This analysis isolates what you truly need for Year 1 alone &mdash; the minimum to reach product-market fit and early revenue traction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Raise Scenarios -->
+    <section class="section" id="scenarios">
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <h2><small>Capital Requirements</small>Three Raise Scenarios</h2>
+        </div>
+
+        <div class="scenario-grid">
+            <!-- Scenario A -->
+            <div class="scenario-card">
+                <h3>A. Absolute Floor</h3>
+                <div class="raise-amount" style="color: var(--danger);">$2.1M</div>
+                <span class="risk-tag risk-high">High Risk</span>
+                <ul class="scenario-details">
+                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
+                    <li><span class="check">&#10003;</span> Cash Advances launch</li>
+                    <li><span class="check">&#10003;</span> Virtual Card launch</li>
+                    <li><span class="cross">&#10007;</span> No remittances Year 1</li>
+                    <li><span class="cross">&#10007;</span> No insurance/assistance</li>
+                    <li><span class="cross">&#10007;</span> 5-person team only</li>
+                    <li><span class="cross">&#10007;</span> Organic marketing only</li>
+                    <li><span class="warn">&#9888;</span> Zero buffer for delays</li>
+                    <li><span class="warn">&#9888;</span> Cash runs out Month 11</li>
+                </ul>
+            </div>
+
+            <!-- Scenario B -->
+            <div class="scenario-card">
+                <h3>B. Lean Start</h3>
+                <div class="raise-amount" style="color: var(--warning);">$3.2M</div>
+                <span class="risk-tag risk-med">Moderate Risk</span>
+                <ul class="scenario-details">
+                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
+                    <li><span class="check">&#10003;</span> Cash Advances launch</li>
+                    <li><span class="check">&#10003;</span> Card program (full)</li>
+                    <li><span class="check">&#10003;</span> Remittances launch</li>
+                    <li><span class="cross">&#10007;</span> Insurance deferred to M11</li>
+                    <li><span class="check">&#10003;</span> 8-person core team</li>
+                    <li><span class="check">&#10003;</span> Referral + organic marketing</li>
+                    <li><span class="warn">&#9888;</span> 2-month cash buffer</li>
+                    <li><span class="check">&#10003;</span> Reaches breakeven-adjacent</li>
+                </ul>
+            </div>
+
+            <!-- Scenario C -->
+            <div class="scenario-card best">
+                <div class="scenario-badge">RECOMMENDED</div>
+                <h3>C. Optimal Year 1</h3>
+                <div class="raise-amount" style="color: #059669;">$4.0M</div>
+                <span class="risk-tag risk-low">Lower Risk</span>
+                <ul class="scenario-details">
+                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
+                    <li><span class="check">&#10003;</span> All 5 products launched</li>
+                    <li><span class="check">&#10003;</span> 12-person team</li>
+                    <li><span class="check">&#10003;</span> Full marketing mix</li>
+                    <li><span class="check">&#10003;</span> 3-month cash buffer</li>
+                    <li><span class="check">&#10003;</span> On-track for 40K users</li>
+                    <li><span class="check">&#10003;</span> $2.8M Year 1 revenue</li>
+                    <li><span class="check">&#10003;</span> Strong position for Tranche 4</li>
+                    <li><span class="check">&#10003;</span> Investor confidence intact</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-Negotiable Costs -->
+    <section class="section" id="non-negotiables">
+        <div class="section-header">
+            <div class="section-number">3</div>
+            <h2><small>Fixed Requirements</small>Non-Negotiable Year 1 Costs</h2>
+        </div>
+
+        <div class="callout warning">
+            <div class="callout-icon">&#128274;</div>
+            <div>
+                <h4>These costs cannot be reduced regardless of scenario</h4>
+                <p>Every scenario must cover these foundational expenses. They represent the absolute floor below which UniCash cannot operate legally or functionally.</p>
+            </div>
+        </div>
+
+        <div class="cost-grid">
+            <div class="cost-card">
+                <h4>&#9878; Regulatory & Licensing</h4>
+                <div class="cost-total">$280K</div>
+                <ul>
+                    <li>MSB registration (FinCEN) <span>$5K</span></li>
+                    <li>State MTL applications (priority states) <span>$120K</span></li>
+                    <li>Legal counsel (licensing) <span>$80K</span></li>
+                    <li>Compliance software & setup <span>$40K</span></li>
+                    <li>Surety bonds (multi-state) <span>$35K</span></li>
+                </ul>
+            </div>
+
+            <div class="cost-card">
+                <h4>&#128187; Tech Infrastructure</h4>
+                <div class="cost-total">$220K</div>
+                <ul>
+                    <li>Core banking partner integration <span>$80K</span></li>
+                    <li>Card issuing platform (Marqeta/equiv.) <span>$50K</span></li>
+                    <li>Cloud infrastructure (Azure) <span>$36K</span></li>
+                    <li>Security/PCI compliance <span>$30K</span></li>
+                    <li>KYC/AML provider (Year 1) <span>$24K</span></li>
+                </ul>
+            </div>
+
+            <div class="cost-card">
+                <h4>&#128101; Minimum Viable Team</h4>
+                <div class="cost-total">$540K</div>
+                <ul>
+                    <li>CEO (Val) &mdash; reduced salary <span>$96K</span></li>
+                    <li>COO (Pedro) &mdash; reduced salary <span>$96K</span></li>
+                    <li>Lead Engineer (full-stack) <span>$140K</span></li>
+                    <li>Compliance Officer <span>$110K</span></li>
+                    <li>Payroll taxes & benefits (~18%) <span>$98K</span></li>
+                </ul>
+            </div>
+
+            <div class="cost-card">
+                <h4>&#128179; Banking & Reserves</h4>
+                <div class="cost-total">$210K</div>
+                <ul>
+                    <li>Sponsor bank deposits <span>$100K</span></li>
+                    <li>Cash advance reserve capital <span>$60K</span></li>
+                    <li>Insurance (E&O, D&O, cyber) <span>$30K</span></li>
+                    <li>Operational deposits <span>$20K</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="num">Amount</th>
+                        <th class="num">% of Floor</th>
+                        <th>Timing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Regulatory & Licensing</td><td class="num">$280K</td><td class="num">22.4%</td><td>Months 1&ndash;4 (front-loaded)</td></tr>
+                    <tr><td>Tech Infrastructure</td><td class="num">$220K</td><td class="num">17.6%</td><td>Months 1&ndash;6 (build phase)</td></tr>
+                    <tr><td>Minimum Team (4 people, 12 mo)</td><td class="num">$540K</td><td class="num">43.2%</td><td>Months 1&ndash;12 (ongoing)</td></tr>
+                    <tr><td>Banking & Reserves</td><td class="num">$210K</td><td class="num">16.8%</td><td>Months 3&ndash;5 (pre-launch)</td></tr>
+                    <tr class="bold-row"><td><strong>Total Non-Negotiable</strong></td><td class="num"><strong>$1.25M</strong></td><td class="num"><strong>100%</strong></td><td><strong>Year 1 baseline</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout danger">
+            <div class="callout-icon">&#9888;</div>
+            <div>
+                <h4>$1.25M is the absolute survival floor</h4>
+                <p>This covers only licensing, a 4-person team, and basic infrastructure. There's no marketing, no customer acquisition, and no buffer. You literally cannot operate below this. The $2.1M "Absolute Floor" scenario adds minimal marketing + user acquisition to actually generate revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Cash Flow -->
+    <section class="section" id="monthly-cashflow">
+        <div class="section-header">
+            <div class="section-number">4</div>
+            <h2><small>Cash Flow Analysis</small>Month-by-Month Projections</h2>
+        </div>
+
+        <p style="margin-bottom: 1.5rem; color: var(--gray-600); font-size: 0.9rem;">Each scenario modeled month-by-month showing when cash runs low and where revenue kicks in. All numbers in $K.</p>
+
+        <!-- Scenario B: Lean Start (the middle/recommended-minimum path) -->
+        <h3 style="font-family: 'Poppins', sans-serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark);">Scenario B: Lean Start ($3.2M) &mdash; Monthly Detail</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Phase</th>
+                        <th class="num">Revenue</th>
+                        <th class="num">OpEx</th>
+                        <th class="num">Net Burn</th>
+                        <th class="num">Cash Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>M1</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$155K</td><td class="num negative">($155K)</td><td class="num">$3,045K</td></tr>
+                    <tr><td><strong>M2</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$165K</td><td class="num negative">($165K)</td><td class="num">$2,880K</td></tr>
+                    <tr><td><strong>M3</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$180K</td><td class="num negative">($180K)</td><td class="num">$2,700K</td></tr>
+                    <tr style="background: rgba(41,107,255,0.04);"><td><strong>M4</strong></td><td>Pre-launch prep</td><td class="num">$0</td><td class="num">$200K</td><td class="num negative">($200K)</td><td class="num">$2,500K</td></tr>
+                    <tr class="highlight-row"><td><strong>M5</strong></td><td>&#128640; Cash Advances LAUNCH</td><td class="num positive">$18K</td><td class="num">$240K</td><td class="num negative">($222K)</td><td class="num">$2,278K</td></tr>
+                    <tr><td><strong>M6</strong></td><td>Ramp + Card Beta</td><td class="num positive">$45K</td><td class="num">$260K</td><td class="num negative">($215K)</td><td class="num">$2,063K</td></tr>
+                    <tr class="highlight-row"><td><strong>M7</strong></td><td>&#128179; Card Full Launch</td><td class="num positive">$95K</td><td class="num">$280K</td><td class="num negative">($185K)</td><td class="num">$1,878K</td></tr>
+                    <tr><td><strong>M8</strong></td><td>Growth</td><td class="num positive">$160K</td><td class="num">$290K</td><td class="num negative">($130K)</td><td class="num">$1,748K</td></tr>
+                    <tr class="highlight-row"><td><strong>M9</strong></td><td>&#127760; Remittances LAUNCH</td><td class="num positive">$250K</td><td class="num">$310K</td><td class="num negative">($60K)</td><td class="num">$1,688K</td></tr>
+                    <tr><td><strong>M10</strong></td><td>Scale</td><td class="num positive">$350K</td><td class="num">$320K</td><td class="num positive">$30K</td><td class="num">$1,718K</td></tr>
+                    <tr><td><strong>M11</strong></td><td>Scale</td><td class="num positive">$430K</td><td class="num">$330K</td><td class="num positive">$100K</td><td class="num">$1,818K</td></tr>
+                    <tr style="background: rgba(39,251,107,0.06);"><td><strong>M12</strong></td><td>&#9989; Profitable Month</td><td class="num positive">$520K</td><td class="num">$340K</td><td class="num positive">$180K</td><td class="num" style="color: #059669; font-weight: 800;">$1,998K</td></tr>
+                    <tr class="bold-row">
+                        <td colspan="2"><strong>Year 1 Totals</strong></td>
+                        <td class="num"><strong>$1,868K</strong></td>
+                        <td class="num"><strong>$3,070K</strong></td>
+                        <td class="num negative"><strong>($1,202K)</strong></td>
+                        <td class="num"><strong>$1,998K</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Visual Cash Balance Chart -->
+        <div class="cash-chart">
+            <h4>Cash Balance Trajectory &mdash; Lean Start ($3.2M)</h4>
+            <div class="bar-chart">
+                <div style="position: absolute; bottom: calc(15% - 1px); left: 0; right: 0; border-top: 2px dashed var(--danger); z-index: 5;">
+                    <span style="position: absolute; right: 0; top: -18px; font-size: 0.65rem; font-weight: 700; color: var(--danger); background: var(--gray-50); padding: 0 4px;">DANGER ZONE ($500K)</span>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 95%;"><div class="bar-value" style="color: var(--primary);">$3.0M</div></div>
+                    <div class="bar-label">M1</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 90%;"><div class="bar-value" style="color: var(--primary);">$2.9M</div></div>
+                    <div class="bar-label">M2</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 84%;"><div class="bar-value" style="color: var(--primary);">$2.7M</div></div>
+                    <div class="bar-label">M3</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 78%;"><div class="bar-value" style="color: var(--primary);">$2.5M</div></div>
+                    <div class="bar-label">M4</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 71%;"><div class="bar-value" style="color: var(--primary);">$2.3M</div></div>
+                    <div class="bar-label">M5</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 64%;"><div class="bar-value" style="color: var(--primary);">$2.1M</div></div>
+                    <div class="bar-label">M6</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 59%;"><div class="bar-value" style="color: var(--primary);">$1.9M</div></div>
+                    <div class="bar-label">M7</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 55%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
+                    <div class="bar-label">M8</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 53%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
+                    <div class="bar-label">M9</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar positive-bar" style="height: 54%;"><div class="bar-value" style="color: #059669;">$1.7M</div></div>
+                    <div class="bar-label">M10</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar green-bar" style="height: 57%;"><div class="bar-value" style="color: #059669;">$1.8M</div></div>
+                    <div class="bar-label">M11</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar green-bar" style="height: 62%;"><div class="bar-value" style="color: #059669;">$2.0M</div></div>
+                    <div class="bar-label">M12</div>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: 1rem; text-align: center;">Cash never drops below $1.7M &mdash; healthy 5+ month runway maintained throughout Year 1</p>
+        </div>
+
+        <div class="callout success">
+            <div class="callout-icon">&#9989;</div>
+            <div>
+                <h4>Key Insight: Month 10 is the Inflection Point</h4>
+                <p>In the Lean Start scenario, revenue exceeds operating expenses starting Month 10. By Month 12, you're generating $180K/month in positive cash flow. You end Year 1 with ~$2.0M in the bank &mdash; enough for 6+ months of runway without any additional capital.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lean Budget Breakdown -->
+    <section class="section" id="lean-budget">
+        <div class="section-header">
+            <div class="section-number">5</div>
+            <h2><small>Use of Funds</small>Lean Budget Allocation ($3.2M)</h2>
+        </div>
+
+        <div class="alloc-bar">
+            <div class="alloc-segment" style="width: 27%; background: var(--primary);">Team</div>
+            <div class="alloc-segment" style="width: 18%; background: #0D1752;">Regulatory</div>
+            <div class="alloc-segment" style="width: 16%; background: #4d8bff;">Tech</div>
+            <div class="alloc-segment" style="width: 15%; background: #27FB6B; color: #0D1752;">Marketing</div>
+            <div class="alloc-segment" style="width: 10%; background: #F59E0B;">Ops</div>
+            <div class="alloc-segment" style="width: 7%; background: #6366F1;">Banking</div>
+            <div class="alloc-segment" style="width: 7%; background: #9CA3AF;">Buffer</div>
+        </div>
+
+        <div class="alloc-legend">
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: var(--primary);"></div>Team &mdash; $870K (27%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #0D1752;"></div>Regulatory &mdash; $580K (18%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #4d8bff;"></div>Technology &mdash; $500K (16%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #27FB6B;"></div>Marketing/CAC &mdash; $480K (15%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #F59E0B;"></div>Operations &mdash; $320K (10%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #6366F1;"></div>Banking Reserves &mdash; $210K (7%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #9CA3AF;"></div>Buffer &mdash; $240K (7%)</div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="num">Absolute Floor</th>
+                        <th class="num">Lean Start</th>
+                        <th class="num">Recommended</th>
+                        <th>What Changes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Team / Personnel</td><td class="num">$540K</td><td class="num">$870K</td><td class="num">$1,200K</td><td>5 &rarr; 8 &rarr; 12 people</td></tr>
+                    <tr><td>Regulatory & Legal</td><td class="num">$280K</td><td class="num">$580K</td><td class="num">$650K</td><td>Priority states &rarr; full coverage</td></tr>
+                    <tr><td>Technology</td><td class="num">$220K</td><td class="num">$500K</td><td class="num">$650K</td><td>MVP &rarr; full platform &rarr; + analytics</td></tr>
+                    <tr><td>Marketing & CAC</td><td class="num">$180K</td><td class="num">$480K</td><td class="num">$720K</td><td>Organic only &rarr; + referrals &rarr; + paid</td></tr>
+                    <tr><td>Operations & CS</td><td class="num">$180K</td><td class="num">$320K</td><td class="num">$400K</td><td>Lean CS &rarr; proper support team</td></tr>
+                    <tr><td>Banking Reserves</td><td class="num">$210K</td><td class="num">$210K</td><td class="num">$210K</td><td>Same (regulatory requirement)</td></tr>
+                    <tr><td>Buffer / Contingency</td><td class="num">$0</td><td class="num">$240K</td><td class="num">$370K</td><td>0 &rarr; 2 months &rarr; 3 months</td></tr>
+                    <tr class="bold-row">
+                        <td><strong>Total</strong></td>
+                        <td class="num"><strong>$1,610K*</strong></td>
+                        <td class="num"><strong>$3,200K</strong></td>
+                        <td class="num"><strong>$4,200K</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: -1rem; margin-bottom: 2rem;">*Floor budget of $1.61M generates ~$850K less revenue due to fewer products &amp; users. Effective need is $2.1M to reach Month 12 with any cash left.</p>
+    </section>
+
+    <!-- Team Build -->
+    <section class="section" id="team">
+        <div class="section-header">
+            <div class="section-number">6</div>
+            <h2><small>Organizational Plan</small>Team Build by Scenario</h2>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th class="num">Floor (5)</th>
+                        <th class="num">Lean (8)</th>
+                        <th class="num">Rec. (12)</th>
+                        <th>Hire Month</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>CEO (Val Infante)</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
+                    <tr><td>COO (Pedro Infante)</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
+                    <tr><td>Lead Full-Stack Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
+                    <tr><td>Compliance Officer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
+                    <tr><td>Backend Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M2</td></tr>
+                    <tr><td>Growth / Marketing Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M4</td></tr>
+                    <tr><td>Customer Support Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M5</td></tr>
+                    <tr><td>Mobile Engineer</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M3</td></tr>
+                    <tr><td>Product Manager</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M4</td></tr>
+                    <tr><td>Data / Analytics Engineer</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M6</td></tr>
+                    <tr><td>CS Agent #2</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M7</td></tr>
+                    <tr><td>Risk / Fraud Analyst</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M6</td></tr>
+                    <tr class="bold-row">
+                        <td><strong>Monthly Payroll (full team)</strong></td>
+                        <td class="num"><strong>$45K</strong></td>
+                        <td class="num"><strong>$72K</strong></td>
+                        <td class="num"><strong>$108K</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Milestones -->
+    <section class="section" id="milestones">
+        <div class="section-header">
+            <div class="section-number">7</div>
+            <h2><small>Execution Timeline</small>Year 1 Milestones & Gates</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">M1</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 1&ndash;2 | Pre-Revenue</div>
+                    <h4>Company Formation & MSB Filing</h4>
+                    <p>Incorporate UniCash LLC, FinCEN MSB registration, begin priority state MTL applications (TX, FL, CA, NY), establish banking relationships.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Cash spent: <strong>$320K</strong></div>
+                        <div class="timeline-metric">Team: <strong>5 people</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">M3</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 3&ndash;4 | Build Phase</div>
+                    <h4>Platform Build & Banking Integration</h4>
+                    <p>Core platform development, banking partner API integration, card issuing setup, KYC/AML pipeline, internal testing.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Cash spent: <strong>$700K</strong></div>
+                        <div class="timeline-metric">Product: <strong>Beta ready</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M5</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 5 | FIRST REVENUE</div>
+                    <h4>Cash Advances Launch</h4>
+                    <p>Go live with earned wage access / cash advance product. Initial user acquisition through organic channels and MyBambu network warm referrals.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>500&ndash;1,000</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$18K</strong></div>
+                        <div class="timeline-metric">CAC: <strong>&#8804;$35</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot orange">M6</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 6 | VALIDATION GATE</div>
+                    <h4>Tranche 2 KPI Check (if raising $5M+)</h4>
+                    <p>Target: 5K users, $100K cumulative revenue, CAC &#8804;$40. If raising lean ($3.2M), this is an internal checkpoint to validate unit economics.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>3K&ndash;5K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$45K</strong></div>
+                        <div class="timeline-metric">Margin: <strong>&ge;55%</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M7</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 7&ndash;8 | Growth Phase</div>
+                    <h4>Card Program Full Launch</h4>
+                    <p>Virtual + physical card rollout. Cross-sell to cash advance users. Enable direct deposit, driving higher engagement and stickiness.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>8K&ndash;12K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$160K</strong></div>
+                        <div class="timeline-metric">Products: <strong>2 live</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M9</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 9 | Product Expansion</div>
+                    <h4>Remittances Launch</h4>
+                    <p>Cross-border remittance product live. Targets LATAM corridors (MX, GT, SV, CO). Massive TAM expansion and ARPU boost.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>18K&ndash;22K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$250K</strong></div>
+                        <div class="timeline-metric">Products: <strong>3 live</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M10</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 10&ndash;11 | Inflection</div>
+                    <h4>Revenue Exceeds OpEx</h4>
+                    <p>Monthly revenue crosses operating expenses. Cash balance stabilizes and begins growing. Optional: launch Insurance & Assistance products.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>28K&ndash;35K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$430K</strong></div>
+                        <div class="timeline-metric">Net: <strong>Positive</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M12</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 12 | YEAR END</div>
+                    <h4>Year 1 Close &mdash; Series A Readiness</h4>
+                    <p>40K users, $520K MRR, $6.2M ARR run-rate, ~$2M cash in bank. Strong metrics to raise Series A or continue with Tranche 4 from existing investors.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>40K</strong></div>
+                        <div class="timeline-metric">ARR: <strong>$6.2M</strong></div>
+                        <div class="timeline-metric">Cash: <strong>$2.0M</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Sequence -->
+    <section class="section" id="product-sequence">
+        <div class="section-header">
+            <div class="section-number">8</div>
+            <h2><small>Product Strategy</small>Launch Sequence by Scenario</h2>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th class="num">Rev/User/Mo</th>
+                        <th class="num">Y1 Rev Potential</th>
+                        <th>Floor ($2.1M)</th>
+                        <th>Lean ($3.2M)</th>
+                        <th>Rec. ($4.0M)</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><strong>Cash Advances</strong></td>
+                        <td class="num">$19.13</td>
+                        <td class="num">$1.05M</td>
+                        <td>M5 &#10003;</td>
+                        <td>M5 &#10003;</td>
+                        <td>M5 &#10003;</td>
+                        <td><span class="risk-tag risk-low">P0 &mdash; Core</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Card Program</strong></td>
+                        <td class="num">$5.00</td>
+                        <td class="num">$290K</td>
+                        <td>M7 &#10003;</td>
+                        <td>M7 &#10003;</td>
+                        <td>M7 &#10003;</td>
+                        <td><span class="risk-tag risk-low">P0 &mdash; Core</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Remittances</strong></td>
+                        <td class="num">$9.80</td>
+                        <td class="num">$390K</td>
+                        <td style="color: var(--danger);">Deferred &#10007;</td>
+                        <td>M9 &#10003;</td>
+                        <td>M9 &#10003;</td>
+                        <td><span class="risk-tag risk-med">P1 &mdash; High ROI</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assistance Plans</strong></td>
+                        <td class="num">$3.50</td>
+                        <td class="num">$55K</td>
+                        <td style="color: var(--danger);">Deferred &#10007;</td>
+                        <td style="color: var(--warning);">M11 (if budget)</td>
+                        <td>M11 &#10003;</td>
+                        <td><span class="risk-tag risk-high">P2 &mdash; Nice to Have</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insurance</strong></td>
+                        <td class="num">$1.50</td>
+                        <td class="num">$14K</td>
+                        <td style="color: var(--danger);">Deferred &#10007;</td>
+                        <td style="color: var(--danger);">Deferred &#10007;</td>
+                        <td>M10 &#10003;</td>
+                        <td><span class="risk-tag risk-high">P2 &mdash; Nice to Have</span></td>
+                    </tr>
+                    <tr class="bold-row">
+                        <td><strong>Total Y1 Revenue</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td class="num"><strong>$1.34M</strong></td>
+                        <td class="num"><strong>$1.87M</strong></td>
+                        <td class="num"><strong>$2.80M</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout info">
+            <div class="callout-icon">&#128161;</div>
+            <div>
+                <h4>Cash Advances is the engine</h4>
+                <p>At $19.13 ARPU/month and 60% adoption, Cash Advances alone generates 55-63% of total Year 1 revenue. This is your #1 product regardless of raise size. Card Program provides stickiness and direct deposit lock-in. Remittances is the growth multiplier but can wait until Month 9 if capital is tight.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Matrix -->
+    <section class="section" id="risks">
+        <div class="section-header">
+            <div class="section-number">9</div>
+            <h2><small>Risk Assessment</small>What Can Go Wrong</h2>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Impact</th>
+                        <th>Floor ($2.1M)</th>
+                        <th>Lean ($3.2M)</th>
+                        <th>Rec. ($4.0M)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Licensing delays (+3 months)</strong></td>
+                        <td>Delays revenue start to M8</td>
+                        <td class="negative">FATAL &mdash; cash runs out</td>
+                        <td style="color: var(--warning);">Tight &mdash; survives barely</td>
+                        <td class="positive">Covered by buffer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CAC 50% higher than planned</strong></td>
+                        <td>$52 CAC vs $35 target</td>
+                        <td class="negative">Fewer users, less revenue</td>
+                        <td style="color: var(--warning);">Reduce user targets 30%</td>
+                        <td class="positive">Absorb, adjust channels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banking partner falls through</strong></td>
+                        <td>2-3 month delay to find new</td>
+                        <td class="negative">FATAL &mdash; no recovery time</td>
+                        <td class="negative">Very difficult</td>
+                        <td style="color: var(--warning);">Manageable with buffer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cash advance defaults &gt;5%</strong></td>
+                        <td>Margin compression</td>
+                        <td class="negative">Margin drops to &lt;40%</td>
+                        <td style="color: var(--warning);">Margin drops to ~50%</td>
+                        <td class="positive">Absorb, tighten underwriting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key engineer quits</strong></td>
+                        <td>3-4 month productivity gap</td>
+                        <td class="negative">No redundancy, critical</td>
+                        <td style="color: var(--warning);">Strain but survivable</td>
+                        <td class="positive">Team depth covers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revenue ramp 40% slower</strong></td>
+                        <td>Year 1 rev drops to ~$1.1M</td>
+                        <td class="negative">Cash out by M10</td>
+                        <td style="color: var(--warning);">Ends Year 1 at ~$900K cash</td>
+                        <td class="positive">Ends Year 1 at ~$1.5M cash</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout danger">
+            <div class="callout-icon">&#9888;</div>
+            <div>
+                <h4>The $2.1M Floor scenario has zero margin for error</h4>
+                <p>Any single risk event &mdash; licensing delay, banking partner issue, or slower-than-expected revenue &mdash; is potentially fatal at the Floor raise level. The Lean scenario ($3.2M) survives most individual risks but not compounding risks. The Recommended raise ($4.0M) is the minimum where you can absorb 2+ simultaneous setbacks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Comparison -->
+    <section class="section" id="comparison">
+        <div class="section-header">
+            <div class="section-number">10</div>
+            <h2><small>Side-by-Side</small>Scenario Comparison Matrix</h2>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th class="num">Floor ($2.1M)</th>
+                        <th class="num">Lean ($3.2M)</th>
+                        <th class="num best-col">Rec. ($4.0M)</th>
+                        <th class="num">Full Plan ($5.0M)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Year 1 Revenue</td>
+                        <td class="num">$1.34M</td>
+                        <td class="num">$1.87M</td>
+                        <td class="num best-col">$2.80M</td>
+                        <td class="num">$2.80M</td>
+                    </tr>
+                    <tr>
+                        <td>Year 1 Users</td>
+                        <td class="num">15K</td>
+                        <td class="num">28K</td>
+                        <td class="num best-col">40K</td>
+                        <td class="num">40K</td>
+                    </tr>
+                    <tr>
+                        <td>Products Launched</td>
+                        <td class="num">2</td>
+                        <td class="num">3&ndash;4</td>
+                        <td class="num best-col">5</td>
+                        <td class="num">5</td>
+                    </tr>
+                    <tr>
+                        <td>Team Size (M12)</td>
+                        <td class="num">5</td>
+                        <td class="num">8</td>
+                        <td class="num best-col">12</td>
+                        <td class="num">15</td>
+                    </tr>
+                    <tr>
+                        <td>Ending Cash (M12)</td>
+                        <td class="num negative">$280K</td>
+                        <td class="num">$1,998K</td>
+                        <td class="num best-col positive">$2,400K</td>
+                        <td class="num positive">$3,700K</td>
+                    </tr>
+                    <tr>
+                        <td>Months of Runway (M12)</td>
+                        <td class="num negative">0.8 mo</td>
+                        <td class="num">5.9 mo</td>
+                        <td class="num best-col positive">7.1 mo</td>
+                        <td class="num positive">11 mo</td>
+                    </tr>
+                    <tr>
+                        <td>Revenue Positive Month</td>
+                        <td class="num">M11</td>
+                        <td class="num">M10</td>
+                        <td class="num best-col">M10</td>
+                        <td class="num">M10</td>
+                    </tr>
+                    <tr>
+                        <td>Survives 3-Month Delay?</td>
+                        <td class="num negative">No</td>
+                        <td class="num" style="color: var(--warning);">Barely</td>
+                        <td class="num best-col positive">Yes</td>
+                        <td class="num positive">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Series A Ready?</td>
+                        <td class="num negative">Weak</td>
+                        <td class="num" style="color: var(--warning);">Possible</td>
+                        <td class="num best-col positive">Strong</td>
+                        <td class="num positive">Very Strong</td>
+                    </tr>
+                    <tr>
+                        <td>Dilution (at $20M pre)</td>
+                        <td class="num positive">9.5%</td>
+                        <td class="num">13.8%</td>
+                        <td class="num best-col">16.7%</td>
+                        <td class="num">20.0%</td>
+                    </tr>
+                    <tr class="bold-row">
+                        <td><strong>Risk Level</strong></td>
+                        <td class="num"><span class="risk-tag risk-high">HIGH</span></td>
+                        <td class="num"><span class="risk-tag risk-med">MODERATE</span></td>
+                        <td class="num best-col"><span class="risk-tag risk-low">LOW</span></td>
+                        <td class="num"><span class="risk-tag risk-low">LOWEST</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Key Assumptions -->
+    <section class="section" id="assumptions">
+        <div class="section-header">
+            <div class="section-number">11</div>
+            <h2><small>Methodology</small>Key Assumptions</h2>
+        </div>
+
+        <div class="assumptions-grid">
+            <div class="assumption-chip">
+                <div class="a-icon">&#128176;</div>
+                <div class="a-text"><strong>CAC: $35 blended</strong><br>Validated by MyBambu playbook (0&rarr;1.2M users). Industry avg is $150&ndash;300.</div>
+            </div>
+            <div class="assumption-chip">
+                <div class="a-icon">&#128200;</div>
+                <div class="a-text"><strong>Gross margin: 60%</strong><br>Consistent with fintech benchmarks for cash advance + card programs.</div>
+            </div>
+            <div class="assumption-chip">
+                <div class="a-icon">&#128101;</div>
+                <div class="a-text"><strong>Retention: 92%+ monthly</strong><br>Direct deposit lock-in + multi-product stickiness drives high retention.</div>
+            </div>
+            <div class="assumption-chip">
+                <div class="a-icon">&#128197;</div>
+                <div class="a-text"><strong>Licensing: 3&ndash;4 months</strong><br>Priority states first. Assumes no major regulatory delays.</div>
+            </div>
+            <div class="assumption-chip">
+                <div class="a-icon">&#128179;</div>
+                <div class="a-text"><strong>Default rate: &lt;3%</strong><br>Based on Pedro's track record at MyBambu with underwriting model.</div>
+            </div>
+            <div class="assumption-chip">
+                <div class="a-icon">&#127919;</div>
+                <div class="a-text"><strong>Revenue ramp: 5 months</strong><br>First revenue Month 5, breakeven Month 10, stable growth by Month 12.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Line -->
+    <section class="section" id="bottom-line">
+        <div class="bottom-line">
+            <h2>The Bottom Line</h2>
+            <div class="bottom-line-grid">
+                <div class="bottom-line-item">
+                    <div class="bl-label">Absolute Minimum</div>
+                    <div class="bl-value">$2.1M</div>
+                    <div class="bl-note">Survivable but fragile. One setback = game over.</div>
+                </div>
+                <div class="bottom-line-item">
+                    <div class="bl-label">Recommended Minimum</div>
+                    <div class="bl-value green">$3.2M</div>
+                    <div class="bl-note">Lean but viable. 3 core products, 8-person team, 2-month buffer.</div>
+                </div>
+                <div class="bottom-line-item">
+                    <div class="bl-label">Optimal Year 1</div>
+                    <div class="bl-value">$4.0M</div>
+                    <div class="bl-note">Full execution. All 5 products, proper team, de-risked.</div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.85; max-width: 700px; line-height: 1.7; position: relative; z-index: 2;">
+                <strong>Our recommendation:</strong> Raise <strong>$3.2M&ndash;$4.0M</strong> for Year 1. This provides enough runway to launch core products, prove unit economics, reach 28K&ndash;40K users, and end the year with 6+ months of cash in the bank &mdash; positioning UniCash strongly for either a Series A or continued growth from cash flow.
+            </p>
+        </div>
+    </section>
+
+    <p style="text-align: center; margin-top: 3rem; font-size: 0.8rem; color: var(--gray-600);">
+        UniCash &mdash; Year 1 Startup Plan &mdash; Confidential
+        <br><a href="3-year-exit-plan.html" style="color: var(--primary); text-decoration: none;">View Full 3-Year Exit Plan &rarr;</a>
+    </p>
+
+</div>
+
+<!-- Smooth scroll for sidebar -->
+<script>
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Active section tracking
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    document.querySelectorAll('.section[id]').forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
