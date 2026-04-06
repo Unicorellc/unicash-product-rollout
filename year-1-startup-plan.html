@@ -520,25 +520,6 @@
             text-align: center;
         }
 
-        /* Danger line */
-        .danger-line {
-            position: absolute;
-            left: 0; right: 0;
-            border-top: 2px dashed var(--danger);
-            z-index: 5;
-        }
-
-        .danger-label {
-            position: absolute;
-            right: 0;
-            top: -18px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--danger);
-            background: white;
-            padding: 0 0.3rem;
-        }
-
         /* Callout Boxes */
         .callout {
             border-radius: 12px;
@@ -728,10 +709,6 @@
         }
 
         /* Comparison Table Highlights */
-        .compare-header {
-            background: var(--primary) !important;
-        }
-
         .best-col {
             background: rgba(39,251,107,0.06);
         }
@@ -863,9 +840,9 @@
 
     <!-- Hero -->
     <div class="hero">
-        <div class="hero-badge">YEAR 1 MINIMUM VIABLE RAISE ANALYSIS</div>
+        <div class="hero-badge">YEAR 1 MINIMUM VIABLE RAISE &mdash; AGGREGATOR MODEL</div>
         <h1>What's the <span>minimum</span><br>we need to raise?</h1>
-        <p>A rigorous, bottom-up analysis of UniCash's Year 1 capital requirements. Three scenarios from bare-bones survival to optimal execution, with month-by-month cash flows.</p>
+        <p>Bottom-up analysis using an aggregator model &mdash; no MSB/MTL licensing costs, remittances live by Month 4, and significantly faster time-to-revenue. Three scenarios with month-by-month cash flows.</p>
     </div>
 
     <!-- TL;DR -->
@@ -878,18 +855,26 @@
         <div class="tldr-grid">
             <div class="tldr-card minimum">
                 <div class="tldr-label">Absolute Floor</div>
-                <div class="tldr-amount">$2.1M</div>
-                <div class="tldr-desc">Skeleton crew, 2 products only, zero margin for error. High failure risk.</div>
+                <div class="tldr-amount">$1.6M</div>
+                <div class="tldr-desc">Skeleton crew, 3 products via aggregator, minimal buffer. High risk but viable.</div>
             </div>
             <div class="tldr-card lean">
                 <div class="tldr-label">Lean Start</div>
-                <div class="tldr-amount">$3.2M</div>
-                <div class="tldr-desc">Core team, 3 products, modest buffer. Viable but tight.</div>
+                <div class="tldr-amount">$2.5M</div>
+                <div class="tldr-desc">Core team, 4 products, 2-month buffer. Strong path to profitability by M8.</div>
             </div>
             <div class="tldr-card recommended">
                 <div class="tldr-label">Recommended Minimum</div>
-                <div class="tldr-amount">$4.0M</div>
-                <div class="tldr-desc">Full Year 1 execution with proper buffer and all 5 products. De-risked.</div>
+                <div class="tldr-amount">$3.2M</div>
+                <div class="tldr-desc">Full Year 1 execution with all 5 products, proper buffer, and growth capital.</div>
+            </div>
+        </div>
+
+        <div class="callout success">
+            <div class="callout-icon">&#128640;</div>
+            <div>
+                <h4>Aggregator Model = Game Changer</h4>
+                <p>By launching under an existing aggregator's licenses, UniCash eliminates ~$240K in MSB/MTL upfront costs, skips the 3&ndash;4 month licensing wait, and can launch <strong>remittances by Month 4</strong> alongside cash advances. This drops the minimum raise by ~$500K&ndash;$800K vs. self-licensing and gets revenue flowing 2 months sooner.</p>
             </div>
         </div>
 
@@ -897,7 +882,7 @@
             <div class="callout-icon">&#128161;</div>
             <div>
                 <h4>Why Not the Full $7M?</h4>
-                <p>The 3-Year Exit Plan raises $7M across 4 tranches. But $2M of that (Tranche 4) is Year 2 growth capital. This analysis isolates what you truly need for Year 1 alone &mdash; the minimum to reach product-market fit and early revenue traction.</p>
+                <p>The 3-Year Exit Plan raises $7M across 4 tranches. But $2M of that (Tranche 4) is Year 2 growth capital. This analysis isolates what you truly need for Year 1 alone &mdash; and with the aggregator model, the numbers are dramatically lower.</p>
             </div>
         </div>
     </section>
@@ -913,36 +898,36 @@
             <!-- Scenario A -->
             <div class="scenario-card">
                 <h3>A. Absolute Floor</h3>
-                <div class="raise-amount" style="color: var(--danger);">$2.1M</div>
+                <div class="raise-amount" style="color: var(--danger);">$1.6M</div>
                 <span class="risk-tag risk-high">High Risk</span>
                 <ul class="scenario-details">
-                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
-                    <li><span class="check">&#10003;</span> Cash Advances launch</li>
-                    <li><span class="check">&#10003;</span> Virtual Card launch</li>
-                    <li><span class="cross">&#10007;</span> No remittances Year 1</li>
+                    <li><span class="check">&#10003;</span> Aggregator partnership (no licensing)</li>
+                    <li><span class="check">&#10003;</span> Cash Advances launch (M3)</li>
+                    <li><span class="check">&#10003;</span> Remittances launch (M4)</li>
+                    <li><span class="check">&#10003;</span> Virtual Card launch (M6)</li>
                     <li><span class="cross">&#10007;</span> No insurance/assistance</li>
                     <li><span class="cross">&#10007;</span> 5-person team only</li>
                     <li><span class="cross">&#10007;</span> Organic marketing only</li>
-                    <li><span class="warn">&#9888;</span> Zero buffer for delays</li>
-                    <li><span class="warn">&#9888;</span> Cash runs out Month 11</li>
+                    <li><span class="warn">&#9888;</span> Minimal buffer (~$200K)</li>
+                    <li><span class="warn">&#9888;</span> Dependent on aggregator terms</li>
                 </ul>
             </div>
 
             <!-- Scenario B -->
             <div class="scenario-card">
                 <h3>B. Lean Start</h3>
-                <div class="raise-amount" style="color: var(--warning);">$3.2M</div>
+                <div class="raise-amount" style="color: var(--warning);">$2.5M</div>
                 <span class="risk-tag risk-med">Moderate Risk</span>
                 <ul class="scenario-details">
-                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
-                    <li><span class="check">&#10003;</span> Cash Advances launch</li>
-                    <li><span class="check">&#10003;</span> Card program (full)</li>
-                    <li><span class="check">&#10003;</span> Remittances launch</li>
-                    <li><span class="cross">&#10007;</span> Insurance deferred to M11</li>
+                    <li><span class="check">&#10003;</span> Aggregator partnership</li>
+                    <li><span class="check">&#10003;</span> Cash Advances + Remittances (M3&ndash;M4)</li>
+                    <li><span class="check">&#10003;</span> Card program full (M6)</li>
+                    <li><span class="check">&#10003;</span> Assistance Plans (M10)</li>
+                    <li><span class="cross">&#10007;</span> Insurance deferred</li>
                     <li><span class="check">&#10003;</span> 8-person core team</li>
                     <li><span class="check">&#10003;</span> Referral + organic marketing</li>
-                    <li><span class="warn">&#9888;</span> 2-month cash buffer</li>
-                    <li><span class="check">&#10003;</span> Reaches breakeven-adjacent</li>
+                    <li><span class="check">&#10003;</span> 2-month cash buffer</li>
+                    <li><span class="check">&#10003;</span> Revenue positive by M8</li>
                 </ul>
             </div>
 
@@ -950,18 +935,18 @@
             <div class="scenario-card best">
                 <div class="scenario-badge">RECOMMENDED</div>
                 <h3>C. Optimal Year 1</h3>
-                <div class="raise-amount" style="color: #059669;">$4.0M</div>
+                <div class="raise-amount" style="color: #059669;">$3.2M</div>
                 <span class="risk-tag risk-low">Lower Risk</span>
                 <ul class="scenario-details">
-                    <li><span class="check">&#10003;</span> MSB license + compliance</li>
+                    <li><span class="check">&#10003;</span> Aggregator partnership</li>
                     <li><span class="check">&#10003;</span> All 5 products launched</li>
                     <li><span class="check">&#10003;</span> 12-person team</li>
                     <li><span class="check">&#10003;</span> Full marketing mix</li>
                     <li><span class="check">&#10003;</span> 3-month cash buffer</li>
                     <li><span class="check">&#10003;</span> On-track for 40K users</li>
-                    <li><span class="check">&#10003;</span> $2.8M Year 1 revenue</li>
-                    <li><span class="check">&#10003;</span> Strong position for Tranche 4</li>
-                    <li><span class="check">&#10003;</span> Investor confidence intact</li>
+                    <li><span class="check">&#10003;</span> $3.1M Year 1 revenue</li>
+                    <li><span class="check">&#10003;</span> Strong position for Series A</li>
+                    <li><span class="check">&#10003;</span> Can self-license in Year 2</li>
                 </ul>
             </div>
         </div>
@@ -978,20 +963,18 @@
             <div class="callout-icon">&#128274;</div>
             <div>
                 <h4>These costs cannot be reduced regardless of scenario</h4>
-                <p>Every scenario must cover these foundational expenses. They represent the absolute floor below which UniCash cannot operate legally or functionally.</p>
+                <p>With the aggregator model, licensing costs are eliminated. The aggregator holds MSB/MTL licenses &mdash; UniCash operates under their umbrella and pays a revenue share or per-transaction fee instead of upfront licensing.</p>
             </div>
         </div>
 
         <div class="cost-grid">
             <div class="cost-card">
-                <h4>&#9878; Regulatory & Licensing</h4>
-                <div class="cost-total">$280K</div>
+                <h4>&#129309; Aggregator & Compliance</h4>
+                <div class="cost-total">$100K</div>
                 <ul>
-                    <li>MSB registration (FinCEN) <span>$5K</span></li>
-                    <li>State MTL applications (priority states) <span>$120K</span></li>
-                    <li>Legal counsel (licensing) <span>$80K</span></li>
-                    <li>Compliance software & setup <span>$40K</span></li>
-                    <li>Surety bonds (multi-state) <span>$35K</span></li>
+                    <li>Aggregator integration &amp; setup fees <span>$25K</span></li>
+                    <li>Compliance software &amp; internal setup <span>$40K</span></li>
+                    <li>Corporate legal (formation, contracts) <span>$35K</span></li>
                 </ul>
             </div>
 
@@ -1014,8 +997,8 @@
                     <li>CEO (Val) &mdash; reduced salary <span>$96K</span></li>
                     <li>COO (Pedro) &mdash; reduced salary <span>$96K</span></li>
                     <li>Lead Engineer (full-stack) <span>$140K</span></li>
-                    <li>Compliance Officer <span>$110K</span></li>
-                    <li>Payroll taxes & benefits (~18%) <span>$98K</span></li>
+                    <li>Backend Engineer <span>$120K</span></li>
+                    <li>Payroll taxes &amp; benefits (~18%) <span>$88K</span></li>
                 </ul>
             </div>
 
@@ -1025,7 +1008,7 @@
                 <ul>
                     <li>Sponsor bank deposits <span>$100K</span></li>
                     <li>Cash advance reserve capital <span>$60K</span></li>
-                    <li>Insurance (E&O, D&O, cyber) <span>$30K</span></li>
+                    <li>Insurance (E&amp;O, D&amp;O, cyber) <span>$30K</span></li>
                     <li>Operational deposits <span>$20K</span></li>
                 </ul>
             </div>
@@ -1042,20 +1025,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Regulatory & Licensing</td><td class="num">$280K</td><td class="num">22.4%</td><td>Months 1&ndash;4 (front-loaded)</td></tr>
-                    <tr><td>Tech Infrastructure</td><td class="num">$220K</td><td class="num">17.6%</td><td>Months 1&ndash;6 (build phase)</td></tr>
-                    <tr><td>Minimum Team (4 people, 12 mo)</td><td class="num">$540K</td><td class="num">43.2%</td><td>Months 1&ndash;12 (ongoing)</td></tr>
-                    <tr><td>Banking & Reserves</td><td class="num">$210K</td><td class="num">16.8%</td><td>Months 3&ndash;5 (pre-launch)</td></tr>
-                    <tr class="bold-row"><td><strong>Total Non-Negotiable</strong></td><td class="num"><strong>$1.25M</strong></td><td class="num"><strong>100%</strong></td><td><strong>Year 1 baseline</strong></td></tr>
+                    <tr><td>Aggregator &amp; Compliance</td><td class="num">$100K</td><td class="num">9.3%</td><td>Months 1&ndash;2 (setup)</td></tr>
+                    <tr><td>Tech Infrastructure</td><td class="num">$220K</td><td class="num">20.6%</td><td>Months 1&ndash;4 (build phase)</td></tr>
+                    <tr><td>Minimum Team (4 people, 12 mo)</td><td class="num">$540K</td><td class="num">50.5%</td><td>Months 1&ndash;12 (ongoing)</td></tr>
+                    <tr><td>Banking &amp; Reserves</td><td class="num">$210K</td><td class="num">19.6%</td><td>Months 2&ndash;3 (pre-launch)</td></tr>
+                    <tr class="bold-row"><td><strong>Total Non-Negotiable</strong></td><td class="num"><strong>$1.07M</strong></td><td class="num"><strong>100%</strong></td><td><strong>Year 1 baseline</strong></td></tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="callout danger">
-            <div class="callout-icon">&#9888;</div>
+        <div class="callout info">
+            <div class="callout-icon">&#128176;</div>
             <div>
-                <h4>$1.25M is the absolute survival floor</h4>
-                <p>This covers only licensing, a 4-person team, and basic infrastructure. There's no marketing, no customer acquisition, and no buffer. You literally cannot operate below this. The $2.1M "Absolute Floor" scenario adds minimal marketing + user acquisition to actually generate revenue.</p>
+                <h4>$180K saved vs. self-licensing model</h4>
+                <p>The aggregator model drops the non-negotiable floor from $1.25M to $1.07M by eliminating MSB registration ($5K), state MTL applications ($120K), licensing legal counsel ($80K), and surety bonds ($35K). The trade-off: slightly lower margins due to aggregator revenue share (typically 15&ndash;30 bps per transaction).</p>
             </div>
         </div>
     </section>
@@ -1067,10 +1050,9 @@
             <h2><small>Cash Flow Analysis</small>Month-by-Month Projections</h2>
         </div>
 
-        <p style="margin-bottom: 1.5rem; color: var(--gray-600); font-size: 0.9rem;">Each scenario modeled month-by-month showing when cash runs low and where revenue kicks in. All numbers in $K.</p>
+        <p style="margin-bottom: 1.5rem; color: var(--gray-600); font-size: 0.9rem;">With no licensing wait, products launch 2 months earlier. Remittances and Cash Advances go live by Month 3&ndash;4. All numbers in $K.</p>
 
-        <!-- Scenario B: Lean Start (the middle/recommended-minimum path) -->
-        <h3 style="font-family: 'Poppins', sans-serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark);">Scenario B: Lean Start ($3.2M) &mdash; Monthly Detail</h3>
+        <h3 style="font-family: 'Poppins', sans-serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark);">Scenario B: Lean Start ($2.5M) &mdash; Monthly Detail</h3>
 
         <div class="table-wrapper">
             <table>
@@ -1085,24 +1067,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>M1</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$155K</td><td class="num negative">($155K)</td><td class="num">$3,045K</td></tr>
-                    <tr><td><strong>M2</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$165K</td><td class="num negative">($165K)</td><td class="num">$2,880K</td></tr>
-                    <tr><td><strong>M3</strong></td><td>Licensing & Build</td><td class="num">$0</td><td class="num">$180K</td><td class="num negative">($180K)</td><td class="num">$2,700K</td></tr>
-                    <tr style="background: rgba(41,107,255,0.04);"><td><strong>M4</strong></td><td>Pre-launch prep</td><td class="num">$0</td><td class="num">$200K</td><td class="num negative">($200K)</td><td class="num">$2,500K</td></tr>
-                    <tr class="highlight-row"><td><strong>M5</strong></td><td>&#128640; Cash Advances LAUNCH</td><td class="num positive">$18K</td><td class="num">$240K</td><td class="num negative">($222K)</td><td class="num">$2,278K</td></tr>
-                    <tr><td><strong>M6</strong></td><td>Ramp + Card Beta</td><td class="num positive">$45K</td><td class="num">$260K</td><td class="num negative">($215K)</td><td class="num">$2,063K</td></tr>
-                    <tr class="highlight-row"><td><strong>M7</strong></td><td>&#128179; Card Full Launch</td><td class="num positive">$95K</td><td class="num">$280K</td><td class="num negative">($185K)</td><td class="num">$1,878K</td></tr>
-                    <tr><td><strong>M8</strong></td><td>Growth</td><td class="num positive">$160K</td><td class="num">$290K</td><td class="num negative">($130K)</td><td class="num">$1,748K</td></tr>
-                    <tr class="highlight-row"><td><strong>M9</strong></td><td>&#127760; Remittances LAUNCH</td><td class="num positive">$250K</td><td class="num">$310K</td><td class="num negative">($60K)</td><td class="num">$1,688K</td></tr>
-                    <tr><td><strong>M10</strong></td><td>Scale</td><td class="num positive">$350K</td><td class="num">$320K</td><td class="num positive">$30K</td><td class="num">$1,718K</td></tr>
-                    <tr><td><strong>M11</strong></td><td>Scale</td><td class="num positive">$430K</td><td class="num">$330K</td><td class="num positive">$100K</td><td class="num">$1,818K</td></tr>
-                    <tr style="background: rgba(39,251,107,0.06);"><td><strong>M12</strong></td><td>&#9989; Profitable Month</td><td class="num positive">$520K</td><td class="num">$340K</td><td class="num positive">$180K</td><td class="num" style="color: #059669; font-weight: 800;">$1,998K</td></tr>
+                    <tr><td><strong>M1</strong></td><td>Build &amp; Aggregator Integration</td><td class="num">$0</td><td class="num">$115K</td><td class="num negative">($115K)</td><td class="num">$2,385K</td></tr>
+                    <tr><td><strong>M2</strong></td><td>Build &amp; Integration</td><td class="num">$0</td><td class="num">$130K</td><td class="num negative">($130K)</td><td class="num">$2,255K</td></tr>
+                    <tr class="highlight-row"><td><strong>M3</strong></td><td>&#128640; Cash Advances LAUNCH</td><td class="num positive">$12K</td><td class="num">$155K</td><td class="num negative">($143K)</td><td class="num">$2,112K</td></tr>
+                    <tr class="highlight-row"><td><strong>M4</strong></td><td>&#127760; Remittances LAUNCH</td><td class="num positive">$40K</td><td class="num">$190K</td><td class="num negative">($150K)</td><td class="num">$1,962K</td></tr>
+                    <tr><td><strong>M5</strong></td><td>Growth &amp; Ramp</td><td class="num positive">$85K</td><td class="num">$220K</td><td class="num negative">($135K)</td><td class="num">$1,827K</td></tr>
+                    <tr class="highlight-row"><td><strong>M6</strong></td><td>&#128179; Card Program LAUNCH</td><td class="num positive">$145K</td><td class="num">$240K</td><td class="num negative">($95K)</td><td class="num">$1,732K</td></tr>
+                    <tr><td><strong>M7</strong></td><td>Cross-sell &amp; Scale</td><td class="num positive">$215K</td><td class="num">$260K</td><td class="num negative">($45K)</td><td class="num">$1,687K</td></tr>
+                    <tr style="background: rgba(39,251,107,0.06);"><td><strong>M8</strong></td><td>&#9989; Revenue = OpEx</td><td class="num positive">$290K</td><td class="num">$270K</td><td class="num positive">$20K</td><td class="num">$1,707K</td></tr>
+                    <tr><td><strong>M9</strong></td><td>Profitable Growth</td><td class="num positive">$370K</td><td class="num">$280K</td><td class="num positive">$90K</td><td class="num">$1,797K</td></tr>
+                    <tr><td><strong>M10</strong></td><td>Scale</td><td class="num positive">$430K</td><td class="num">$290K</td><td class="num positive">$140K</td><td class="num">$1,937K</td></tr>
+                    <tr><td><strong>M11</strong></td><td>Scale</td><td class="num positive">$490K</td><td class="num">$300K</td><td class="num positive">$190K</td><td class="num">$2,127K</td></tr>
+                    <tr style="background: rgba(39,251,107,0.06);"><td><strong>M12</strong></td><td>&#9989; Strong Close</td><td class="num positive">$550K</td><td class="num">$310K</td><td class="num positive">$240K</td><td class="num" style="color: #059669; font-weight: 800;">$2,367K</td></tr>
                     <tr class="bold-row">
                         <td colspan="2"><strong>Year 1 Totals</strong></td>
-                        <td class="num"><strong>$1,868K</strong></td>
-                        <td class="num"><strong>$3,070K</strong></td>
-                        <td class="num negative"><strong>($1,202K)</strong></td>
-                        <td class="num"><strong>$1,998K</strong></td>
+                        <td class="num"><strong>$2,627K</strong></td>
+                        <td class="num"><strong>$2,760K</strong></td>
+                        <td class="num negative"><strong>($133K)</strong></td>
+                        <td class="num"><strong>$2,367K</strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -1110,69 +1092,69 @@
 
         <!-- Visual Cash Balance Chart -->
         <div class="cash-chart">
-            <h4>Cash Balance Trajectory &mdash; Lean Start ($3.2M)</h4>
+            <h4>Cash Balance Trajectory &mdash; Lean Start ($2.5M)</h4>
             <div class="bar-chart">
                 <div style="position: absolute; bottom: calc(15% - 1px); left: 0; right: 0; border-top: 2px dashed var(--danger); z-index: 5;">
                     <span style="position: absolute; right: 0; top: -18px; font-size: 0.65rem; font-weight: 700; color: var(--danger); background: var(--gray-50); padding: 0 4px;">DANGER ZONE ($500K)</span>
                 </div>
 
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 95%;"><div class="bar-value" style="color: var(--primary);">$3.0M</div></div>
+                    <div class="bar positive-bar" style="height: 95%;"><div class="bar-value" style="color: var(--primary);">$2.4M</div></div>
                     <div class="bar-label">M1</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 90%;"><div class="bar-value" style="color: var(--primary);">$2.9M</div></div>
+                    <div class="bar positive-bar" style="height: 90%;"><div class="bar-value" style="color: var(--primary);">$2.3M</div></div>
                     <div class="bar-label">M2</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 84%;"><div class="bar-value" style="color: var(--primary);">$2.7M</div></div>
+                    <div class="bar positive-bar" style="height: 84%;"><div class="bar-value" style="color: var(--primary);">$2.1M</div></div>
                     <div class="bar-label">M3</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 78%;"><div class="bar-value" style="color: var(--primary);">$2.5M</div></div>
+                    <div class="bar positive-bar" style="height: 78%;"><div class="bar-value" style="color: var(--primary);">$2.0M</div></div>
                     <div class="bar-label">M4</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 71%;"><div class="bar-value" style="color: var(--primary);">$2.3M</div></div>
+                    <div class="bar positive-bar" style="height: 73%;"><div class="bar-value" style="color: var(--primary);">$1.8M</div></div>
                     <div class="bar-label">M5</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 64%;"><div class="bar-value" style="color: var(--primary);">$2.1M</div></div>
+                    <div class="bar positive-bar" style="height: 69%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
                     <div class="bar-label">M6</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 59%;"><div class="bar-value" style="color: var(--primary);">$1.9M</div></div>
+                    <div class="bar positive-bar" style="height: 67%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
                     <div class="bar-label">M7</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 55%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
+                    <div class="bar positive-bar" style="height: 68%;"><div class="bar-value" style="color: #059669;">$1.7M</div></div>
                     <div class="bar-label">M8</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 53%;"><div class="bar-value" style="color: var(--primary);">$1.7M</div></div>
+                    <div class="bar green-bar" style="height: 72%;"><div class="bar-value" style="color: #059669;">$1.8M</div></div>
                     <div class="bar-label">M9</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar positive-bar" style="height: 54%;"><div class="bar-value" style="color: #059669;">$1.7M</div></div>
+                    <div class="bar green-bar" style="height: 77%;"><div class="bar-value" style="color: #059669;">$1.9M</div></div>
                     <div class="bar-label">M10</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar green-bar" style="height: 57%;"><div class="bar-value" style="color: #059669;">$1.8M</div></div>
+                    <div class="bar green-bar" style="height: 85%;"><div class="bar-value" style="color: #059669;">$2.1M</div></div>
                     <div class="bar-label">M11</div>
                 </div>
                 <div class="bar-group">
-                    <div class="bar green-bar" style="height: 62%;"><div class="bar-value" style="color: #059669;">$2.0M</div></div>
+                    <div class="bar green-bar" style="height: 94%;"><div class="bar-value" style="color: #059669;">$2.4M</div></div>
                     <div class="bar-label">M12</div>
                 </div>
             </div>
-            <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: 1rem; text-align: center;">Cash never drops below $1.7M &mdash; healthy 5+ month runway maintained throughout Year 1</p>
+            <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: 1rem; text-align: center;">Cash never drops below $1.7M &mdash; healthy 6+ month runway maintained throughout. Ends Year 1 near starting cash.</p>
         </div>
 
         <div class="callout success">
             <div class="callout-icon">&#9989;</div>
             <div>
-                <h4>Key Insight: Month 10 is the Inflection Point</h4>
-                <p>In the Lean Start scenario, revenue exceeds operating expenses starting Month 10. By Month 12, you're generating $180K/month in positive cash flow. You end Year 1 with ~$2.0M in the bank &mdash; enough for 6+ months of runway without any additional capital.</p>
+                <h4>Key Insight: Month 8 is the Inflection Point</h4>
+                <p>With the aggregator model, revenue exceeds operating expenses starting <strong>Month 8</strong> &mdash; two months earlier than the self-licensing model. By Month 12, you're generating $240K/month in positive cash flow. You end Year 1 with <strong>$2.4M in the bank</strong> &mdash; nearly your full raise amount, proving the business is capital-efficient.</p>
             </div>
         </div>
     </section>
@@ -1181,27 +1163,27 @@
     <section class="section" id="lean-budget">
         <div class="section-header">
             <div class="section-number">5</div>
-            <h2><small>Use of Funds</small>Lean Budget Allocation ($3.2M)</h2>
+            <h2><small>Use of Funds</small>Lean Budget Allocation ($2.5M)</h2>
         </div>
 
         <div class="alloc-bar">
-            <div class="alloc-segment" style="width: 27%; background: var(--primary);">Team</div>
-            <div class="alloc-segment" style="width: 18%; background: #0D1752;">Regulatory</div>
-            <div class="alloc-segment" style="width: 16%; background: #4d8bff;">Tech</div>
-            <div class="alloc-segment" style="width: 15%; background: #27FB6B; color: #0D1752;">Marketing</div>
+            <div class="alloc-segment" style="width: 35%; background: var(--primary);">Team</div>
+            <div class="alloc-segment" style="width: 6%; background: #0D1752;">Aggr.</div>
+            <div class="alloc-segment" style="width: 20%; background: #4d8bff;">Tech</div>
+            <div class="alloc-segment" style="width: 16%; background: #27FB6B; color: #0D1752;">Marketing</div>
             <div class="alloc-segment" style="width: 10%; background: #F59E0B;">Ops</div>
-            <div class="alloc-segment" style="width: 7%; background: #6366F1;">Banking</div>
-            <div class="alloc-segment" style="width: 7%; background: #9CA3AF;">Buffer</div>
+            <div class="alloc-segment" style="width: 8%; background: #6366F1;">Banking</div>
+            <div class="alloc-segment" style="width: 5%; background: #9CA3AF;">Buffer</div>
         </div>
 
         <div class="alloc-legend">
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: var(--primary);"></div>Team &mdash; $870K (27%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #0D1752;"></div>Regulatory &mdash; $580K (18%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #4d8bff;"></div>Technology &mdash; $500K (16%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #27FB6B;"></div>Marketing/CAC &mdash; $480K (15%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #F59E0B;"></div>Operations &mdash; $320K (10%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #6366F1;"></div>Banking Reserves &mdash; $210K (7%)</div>
-            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #9CA3AF;"></div>Buffer &mdash; $240K (7%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: var(--primary);"></div>Team &mdash; $870K (35%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #0D1752;"></div>Aggregator &mdash; $140K (6%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #4d8bff;"></div>Technology &mdash; $500K (20%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #27FB6B;"></div>Marketing/CAC &mdash; $400K (16%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #F59E0B;"></div>Operations &mdash; $250K (10%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #6366F1;"></div>Banking Reserves &mdash; $210K (8%)</div>
+            <div class="alloc-legend-item"><div class="alloc-dot" style="background: #9CA3AF;"></div>Buffer &mdash; $130K (5%)</div>
         </div>
 
         <div class="table-wrapper">
@@ -1209,32 +1191,32 @@
                 <thead>
                     <tr>
                         <th>Category</th>
-                        <th class="num">Absolute Floor</th>
-                        <th class="num">Lean Start</th>
-                        <th class="num">Recommended</th>
+                        <th class="num">Floor ($1.6M)</th>
+                        <th class="num">Lean ($2.5M)</th>
+                        <th class="num">Recommended ($3.2M)</th>
                         <th>What Changes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr><td>Team / Personnel</td><td class="num">$540K</td><td class="num">$870K</td><td class="num">$1,200K</td><td>5 &rarr; 8 &rarr; 12 people</td></tr>
-                    <tr><td>Regulatory & Legal</td><td class="num">$280K</td><td class="num">$580K</td><td class="num">$650K</td><td>Priority states &rarr; full coverage</td></tr>
+                    <tr><td>Aggregator &amp; Compliance</td><td class="num">$100K</td><td class="num">$140K</td><td class="num">$180K</td><td>Basic &rarr; + audits &rarr; + own license prep</td></tr>
                     <tr><td>Technology</td><td class="num">$220K</td><td class="num">$500K</td><td class="num">$650K</td><td>MVP &rarr; full platform &rarr; + analytics</td></tr>
-                    <tr><td>Marketing & CAC</td><td class="num">$180K</td><td class="num">$480K</td><td class="num">$720K</td><td>Organic only &rarr; + referrals &rarr; + paid</td></tr>
-                    <tr><td>Operations & CS</td><td class="num">$180K</td><td class="num">$320K</td><td class="num">$400K</td><td>Lean CS &rarr; proper support team</td></tr>
+                    <tr><td>Marketing &amp; CAC</td><td class="num">$150K</td><td class="num">$400K</td><td class="num">$600K</td><td>Organic only &rarr; + referrals &rarr; + paid</td></tr>
+                    <tr><td>Operations &amp; CS</td><td class="num">$140K</td><td class="num">$250K</td><td class="num">$350K</td><td>Lean CS &rarr; proper support team</td></tr>
                     <tr><td>Banking Reserves</td><td class="num">$210K</td><td class="num">$210K</td><td class="num">$210K</td><td>Same (regulatory requirement)</td></tr>
-                    <tr><td>Buffer / Contingency</td><td class="num">$0</td><td class="num">$240K</td><td class="num">$370K</td><td>0 &rarr; 2 months &rarr; 3 months</td></tr>
+                    <tr><td>Buffer / Contingency</td><td class="num">$40K</td><td class="num">$130K</td><td class="num">$310K</td><td>Minimal &rarr; 2 months &rarr; 3 months</td></tr>
                     <tr class="bold-row">
                         <td><strong>Total</strong></td>
-                        <td class="num"><strong>$1,610K*</strong></td>
-                        <td class="num"><strong>$3,200K</strong></td>
-                        <td class="num"><strong>$4,200K</strong></td>
+                        <td class="num"><strong>$1,400K*</strong></td>
+                        <td class="num"><strong>$2,500K</strong></td>
+                        <td class="num"><strong>$3,500K</strong></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: -1rem; margin-bottom: 2rem;">*Floor budget of $1.61M generates ~$850K less revenue due to fewer products &amp; users. Effective need is $2.1M to reach Month 12 with any cash left.</p>
+        <p style="font-size: 0.8rem; color: var(--gray-600); margin-top: -1rem; margin-bottom: 2rem;">*Floor budget of $1.4M with ~$200K buffer from early revenue gets you to $1.6M effective raise needed.</p>
     </section>
 
     <!-- Team Build -->
@@ -1259,15 +1241,15 @@
                     <tr><td>CEO (Val Infante)</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
                     <tr><td>COO (Pedro Infante)</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
                     <tr><td>Lead Full-Stack Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
-                    <tr><td>Compliance Officer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
-                    <tr><td>Backend Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M2</td></tr>
-                    <tr><td>Growth / Marketing Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M4</td></tr>
-                    <tr><td>Customer Support Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M5</td></tr>
-                    <tr><td>Mobile Engineer</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M3</td></tr>
-                    <tr><td>Product Manager</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M4</td></tr>
-                    <tr><td>Data / Analytics Engineer</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M6</td></tr>
-                    <tr><td>CS Agent #2</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M7</td></tr>
-                    <tr><td>Risk / Fraud Analyst</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M6</td></tr>
+                    <tr><td>Backend Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M1</td></tr>
+                    <tr><td>Mobile Engineer</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M2</td></tr>
+                    <tr><td>Growth / Marketing Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M3</td></tr>
+                    <tr><td>Customer Support Lead</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M3</td></tr>
+                    <tr><td>Compliance Analyst</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td class="num">&#10003;</td><td>M4</td></tr>
+                    <tr><td>Product Manager</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M3</td></tr>
+                    <tr><td>Data / Analytics Engineer</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M5</td></tr>
+                    <tr><td>CS Agent #2</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M6</td></tr>
+                    <tr><td>Risk / Fraud Analyst</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&#10003;</td><td>M5</td></tr>
                     <tr class="bold-row">
                         <td><strong>Monthly Payroll (full team)</strong></td>
                         <td class="num"><strong>$45K</strong></td>
@@ -1278,107 +1260,102 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="callout info">
+            <div class="callout-icon">&#128161;</div>
+            <div>
+                <h4>No dedicated Compliance Officer needed in Year 1</h4>
+                <p>The aggregator handles regulatory compliance, BSA/AML program management, and state reporting. A Compliance Analyst (hired M4) handles internal KYC reviews and aggregator reporting. Full Compliance Officer hires when UniCash applies for its own licenses in Year 2.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Milestones -->
     <section class="section" id="milestones">
         <div class="section-header">
             <div class="section-number">7</div>
-            <h2><small>Execution Timeline</small>Year 1 Milestones & Gates</h2>
+            <h2><small>Execution Timeline</small>Year 1 Milestones &amp; Gates</h2>
         </div>
 
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-dot">M1</div>
                 <div class="timeline-content">
-                    <div class="timeline-date">Month 1&ndash;2 | Pre-Revenue</div>
-                    <h4>Company Formation & MSB Filing</h4>
-                    <p>Incorporate UniCash LLC, FinCEN MSB registration, begin priority state MTL applications (TX, FL, CA, NY), establish banking relationships.</p>
+                    <div class="timeline-date">Month 1&ndash;2 | Build Phase</div>
+                    <h4>Aggregator Integration &amp; Platform Build</h4>
+                    <p>Sign aggregator partnership, incorporate UniCash LLC, begin platform development, integrate aggregator APIs for remittances and cash advance rails, set up KYC/AML pipeline.</p>
                     <div class="timeline-metrics">
-                        <div class="timeline-metric">Cash spent: <strong>$320K</strong></div>
+                        <div class="timeline-metric">Cash spent: <strong>$245K</strong></div>
                         <div class="timeline-metric">Team: <strong>5 people</strong></div>
                     </div>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot">M3</div>
+                <div class="timeline-dot green">M3</div>
                 <div class="timeline-content">
-                    <div class="timeline-date">Month 3&ndash;4 | Build Phase</div>
-                    <h4>Platform Build & Banking Integration</h4>
-                    <p>Core platform development, banking partner API integration, card issuing setup, KYC/AML pipeline, internal testing.</p>
-                    <div class="timeline-metrics">
-                        <div class="timeline-metric">Cash spent: <strong>$700K</strong></div>
-                        <div class="timeline-metric">Product: <strong>Beta ready</strong></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot green">M5</div>
-                <div class="timeline-content">
-                    <div class="timeline-date">Month 5 | FIRST REVENUE</div>
+                    <div class="timeline-date">Month 3 | FIRST REVENUE</div>
                     <h4>Cash Advances Launch</h4>
-                    <p>Go live with earned wage access / cash advance product. Initial user acquisition through organic channels and MyBambu network warm referrals.</p>
+                    <p>Go live with earned wage access / cash advance product under aggregator license. Initial user acquisition through organic channels and MyBambu network warm referrals.</p>
                     <div class="timeline-metrics">
-                        <div class="timeline-metric">Users: <strong>500&ndash;1,000</strong></div>
-                        <div class="timeline-metric">MRR: <strong>$18K</strong></div>
+                        <div class="timeline-metric">Users: <strong>300&ndash;600</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$12K</strong></div>
                         <div class="timeline-metric">CAC: <strong>&#8804;$35</strong></div>
                     </div>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot orange">M6</div>
+                <div class="timeline-dot green">M4</div>
                 <div class="timeline-content">
-                    <div class="timeline-date">Month 6 | VALIDATION GATE</div>
-                    <h4>Tranche 2 KPI Check (if raising $5M+)</h4>
-                    <p>Target: 5K users, $100K cumulative revenue, CAC &#8804;$40. If raising lean ($3.2M), this is an internal checkpoint to validate unit economics.</p>
+                    <div class="timeline-date">Month 4 | REMITTANCES LIVE</div>
+                    <h4>Remittances Launch via Aggregator</h4>
+                    <p>Cross-border remittance product live under aggregator's MTLs. Targets LATAM corridors (MX, GT, SV, CO). Massive TAM expansion and ARPU boost from day one.</p>
                     <div class="timeline-metrics">
-                        <div class="timeline-metric">Users: <strong>3K&ndash;5K</strong></div>
-                        <div class="timeline-metric">MRR: <strong>$45K</strong></div>
-                        <div class="timeline-metric">Margin: <strong>&ge;55%</strong></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot green">M7</div>
-                <div class="timeline-content">
-                    <div class="timeline-date">Month 7&ndash;8 | Growth Phase</div>
-                    <h4>Card Program Full Launch</h4>
-                    <p>Virtual + physical card rollout. Cross-sell to cash advance users. Enable direct deposit, driving higher engagement and stickiness.</p>
-                    <div class="timeline-metrics">
-                        <div class="timeline-metric">Users: <strong>8K&ndash;12K</strong></div>
-                        <div class="timeline-metric">MRR: <strong>$160K</strong></div>
+                        <div class="timeline-metric">Users: <strong>1K&ndash;2K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$40K</strong></div>
                         <div class="timeline-metric">Products: <strong>2 live</strong></div>
                     </div>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot green">M9</div>
+                <div class="timeline-dot orange">M5</div>
                 <div class="timeline-content">
-                    <div class="timeline-date">Month 9 | Product Expansion</div>
-                    <h4>Remittances Launch</h4>
-                    <p>Cross-border remittance product live. Targets LATAM corridors (MX, GT, SV, CO). Massive TAM expansion and ARPU boost.</p>
+                    <div class="timeline-date">Month 5 | VALIDATION GATE</div>
+                    <h4>Unit Economics Checkpoint</h4>
+                    <p>Internal validation: 3K+ users, $85K+ MRR, CAC &#8804;$40, margin &#8805;55%. Confirm aggregator economics work at scale. Decision point on card program timing.</p>
                     <div class="timeline-metrics">
-                        <div class="timeline-metric">Users: <strong>18K&ndash;22K</strong></div>
-                        <div class="timeline-metric">MRR: <strong>$250K</strong></div>
+                        <div class="timeline-metric">Users: <strong>3K&ndash;5K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$85K</strong></div>
+                        <div class="timeline-metric">Margin: <strong>&ge;55%</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot green">M6</div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Month 6 | Product Expansion</div>
+                    <h4>Card Program Launch</h4>
+                    <p>Virtual + physical card rollout. Cross-sell to cash advance and remittance users. Enable direct deposit, driving higher engagement and stickiness.</p>
+                    <div class="timeline-metrics">
+                        <div class="timeline-metric">Users: <strong>8K&ndash;10K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$145K</strong></div>
                         <div class="timeline-metric">Products: <strong>3 live</strong></div>
                     </div>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot green">M10</div>
+                <div class="timeline-dot green">M8</div>
                 <div class="timeline-content">
-                    <div class="timeline-date">Month 10&ndash;11 | Inflection</div>
+                    <div class="timeline-date">Month 8 | BREAKEVEN</div>
                     <h4>Revenue Exceeds OpEx</h4>
-                    <p>Monthly revenue crosses operating expenses. Cash balance stabilizes and begins growing. Optional: launch Insurance & Assistance products.</p>
+                    <p>Monthly revenue crosses operating expenses. Cash balance stabilizes and begins growing. UniCash is now self-sustaining.</p>
                     <div class="timeline-metrics">
-                        <div class="timeline-metric">Users: <strong>28K&ndash;35K</strong></div>
-                        <div class="timeline-metric">MRR: <strong>$430K</strong></div>
+                        <div class="timeline-metric">Users: <strong>18K&ndash;22K</strong></div>
+                        <div class="timeline-metric">MRR: <strong>$290K</strong></div>
                         <div class="timeline-metric">Net: <strong>Positive</strong></div>
                     </div>
                 </div>
@@ -1389,11 +1366,11 @@
                 <div class="timeline-content">
                     <div class="timeline-date">Month 12 | YEAR END</div>
                     <h4>Year 1 Close &mdash; Series A Readiness</h4>
-                    <p>40K users, $520K MRR, $6.2M ARR run-rate, ~$2M cash in bank. Strong metrics to raise Series A or continue with Tranche 4 from existing investors.</p>
+                    <p>40K users, $550K MRR, $6.6M ARR run-rate, ~$2.4M cash in bank. 5 consecutive profitable months. Strong metrics to raise Series A or begin self-licensing.</p>
                     <div class="timeline-metrics">
                         <div class="timeline-metric">Users: <strong>40K</strong></div>
-                        <div class="timeline-metric">ARR: <strong>$6.2M</strong></div>
-                        <div class="timeline-metric">Cash: <strong>$2.0M</strong></div>
+                        <div class="timeline-metric">ARR: <strong>$6.6M</strong></div>
+                        <div class="timeline-metric">Cash: <strong>$2.4M</strong></div>
                     </div>
                 </div>
             </div>
@@ -1414,9 +1391,9 @@
                         <th>Product</th>
                         <th class="num">Rev/User/Mo</th>
                         <th class="num">Y1 Rev Potential</th>
-                        <th>Floor ($2.1M)</th>
-                        <th>Lean ($3.2M)</th>
-                        <th>Rec. ($4.0M)</th>
+                        <th>Floor ($1.6M)</th>
+                        <th>Lean ($2.5M)</th>
+                        <th>Rec. ($3.2M)</th>
                         <th>Priority</th>
                     </tr>
                 </thead>
@@ -1424,38 +1401,38 @@
                     <tr class="highlight-row">
                         <td><strong>Cash Advances</strong></td>
                         <td class="num">$19.13</td>
-                        <td class="num">$1.05M</td>
-                        <td>M5 &#10003;</td>
-                        <td>M5 &#10003;</td>
-                        <td>M5 &#10003;</td>
+                        <td class="num">$1.2M</td>
+                        <td>M3 &#10003;</td>
+                        <td>M3 &#10003;</td>
+                        <td>M3 &#10003;</td>
                         <td><span class="risk-tag risk-low">P0 &mdash; Core</span></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Remittances</strong></td>
+                        <td class="num">$9.80</td>
+                        <td class="num">$590K</td>
+                        <td>M4 &#10003;</td>
+                        <td>M4 &#10003;</td>
+                        <td>M4 &#10003;</td>
+                        <td><span class="risk-tag risk-low">P0 &mdash; Core (Aggregator)</span></td>
                     </tr>
                     <tr>
                         <td><strong>Card Program</strong></td>
                         <td class="num">$5.00</td>
-                        <td class="num">$290K</td>
-                        <td>M7 &#10003;</td>
-                        <td>M7 &#10003;</td>
-                        <td>M7 &#10003;</td>
+                        <td class="num">$340K</td>
+                        <td>M6 &#10003;</td>
+                        <td>M6 &#10003;</td>
+                        <td>M5 &#10003;</td>
                         <td><span class="risk-tag risk-low">P0 &mdash; Core</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Remittances</strong></td>
-                        <td class="num">$9.80</td>
-                        <td class="num">$390K</td>
-                        <td style="color: var(--danger);">Deferred &#10007;</td>
-                        <td>M9 &#10003;</td>
-                        <td>M9 &#10003;</td>
-                        <td><span class="risk-tag risk-med">P1 &mdash; High ROI</span></td>
                     </tr>
                     <tr>
                         <td><strong>Assistance Plans</strong></td>
                         <td class="num">$3.50</td>
                         <td class="num">$55K</td>
                         <td style="color: var(--danger);">Deferred &#10007;</td>
-                        <td style="color: var(--warning);">M11 (if budget)</td>
-                        <td>M11 &#10003;</td>
-                        <td><span class="risk-tag risk-high">P2 &mdash; Nice to Have</span></td>
+                        <td>M10 &#10003;</td>
+                        <td>M9 &#10003;</td>
+                        <td><span class="risk-tag risk-med">P1 &mdash; Nice to Have</span></td>
                     </tr>
                     <tr>
                         <td><strong>Insurance</strong></td>
@@ -1470,9 +1447,9 @@
                         <td><strong>Total Y1 Revenue</strong></td>
                         <td></td>
                         <td></td>
-                        <td class="num"><strong>$1.34M</strong></td>
-                        <td class="num"><strong>$1.87M</strong></td>
-                        <td class="num"><strong>$2.80M</strong></td>
+                        <td class="num"><strong>$1.85M</strong></td>
+                        <td class="num"><strong>$2.63M</strong></td>
+                        <td class="num"><strong>$3.10M</strong></td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -1482,8 +1459,8 @@
         <div class="callout info">
             <div class="callout-icon">&#128161;</div>
             <div>
-                <h4>Cash Advances is the engine</h4>
-                <p>At $19.13 ARPU/month and 60% adoption, Cash Advances alone generates 55-63% of total Year 1 revenue. This is your #1 product regardless of raise size. Card Program provides stickiness and direct deposit lock-in. Remittances is the growth multiplier but can wait until Month 9 if capital is tight.</p>
+                <h4>Remittances is now a Day 1 product</h4>
+                <p>With the aggregator model, remittances launches in Month 4 &mdash; no longer gated by MTL approvals. This adds ~$590K in Year 1 revenue potential and gives UniCash <strong>two high-ARPU products from the start</strong>. Combined with Cash Advances ($19.13/mo) and Remittances ($9.80/mo), the blended ARPU hits $28.93/mo for dual-product users.</p>
             </div>
         </div>
     </section>
@@ -1501,18 +1478,25 @@
                     <tr>
                         <th>Risk</th>
                         <th>Impact</th>
-                        <th>Floor ($2.1M)</th>
-                        <th>Lean ($3.2M)</th>
-                        <th>Rec. ($4.0M)</th>
+                        <th>Floor ($1.6M)</th>
+                        <th>Lean ($2.5M)</th>
+                        <th>Rec. ($3.2M)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Licensing delays (+3 months)</strong></td>
-                        <td>Delays revenue start to M8</td>
+                        <td><strong>Aggregator raises fees / changes terms</strong></td>
+                        <td>Margin compression 5&ndash;10%</td>
+                        <td class="negative">Breakeven delayed</td>
+                        <td style="color: var(--warning);">Absorb, begin own licensing</td>
+                        <td class="positive">Buffer + license prep funds</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aggregator partnership falls through</strong></td>
+                        <td>3&ndash;6 month delay to self-license</td>
                         <td class="negative">FATAL &mdash; cash runs out</td>
-                        <td style="color: var(--warning);">Tight &mdash; survives barely</td>
-                        <td class="positive">Covered by buffer</td>
+                        <td class="negative">Very difficult, need bridge</td>
+                        <td style="color: var(--warning);">Tight but survivable</td>
                     </tr>
                     <tr>
                         <td><strong>CAC 50% higher than planned</strong></td>
@@ -1523,10 +1507,10 @@
                     </tr>
                     <tr>
                         <td><strong>Banking partner falls through</strong></td>
-                        <td>2-3 month delay to find new</td>
-                        <td class="negative">FATAL &mdash; no recovery time</td>
-                        <td class="negative">Very difficult</td>
-                        <td style="color: var(--warning);">Manageable with buffer</td>
+                        <td>2&ndash;3 month delay to find new</td>
+                        <td class="negative">Critical &mdash; tight timeline</td>
+                        <td style="color: var(--warning);">Strain but survivable</td>
+                        <td class="positive">Covered by buffer</td>
                     </tr>
                     <tr>
                         <td><strong>Cash advance defaults &gt;5%</strong></td>
@@ -1536,28 +1520,21 @@
                         <td class="positive">Absorb, tighten underwriting</td>
                     </tr>
                     <tr>
-                        <td><strong>Key engineer quits</strong></td>
-                        <td>3-4 month productivity gap</td>
-                        <td class="negative">No redundancy, critical</td>
-                        <td style="color: var(--warning);">Strain but survivable</td>
-                        <td class="positive">Team depth covers</td>
-                    </tr>
-                    <tr>
                         <td><strong>Revenue ramp 40% slower</strong></td>
-                        <td>Year 1 rev drops to ~$1.1M</td>
-                        <td class="negative">Cash out by M10</td>
-                        <td style="color: var(--warning);">Ends Year 1 at ~$900K cash</td>
-                        <td class="positive">Ends Year 1 at ~$1.5M cash</td>
+                        <td>Year 1 rev drops to ~$1.6M</td>
+                        <td class="negative">Cash tight by M10</td>
+                        <td style="color: var(--warning);">Ends Year 1 at ~$1.5M cash</td>
+                        <td class="positive">Ends Year 1 at ~$2.0M cash</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="callout danger">
+        <div class="callout warning">
             <div class="callout-icon">&#9888;</div>
             <div>
-                <h4>The $2.1M Floor scenario has zero margin for error</h4>
-                <p>Any single risk event &mdash; licensing delay, banking partner issue, or slower-than-expected revenue &mdash; is potentially fatal at the Floor raise level. The Lean scenario ($3.2M) survives most individual risks but not compounding risks. The Recommended raise ($4.0M) is the minimum where you can absorb 2+ simultaneous setbacks.</p>
+                <h4>New risk: Aggregator dependency</h4>
+                <p>The aggregator model trades licensing risk for dependency risk. Mitigations: (1) negotiate favorable long-term contract, (2) maintain relationships with 2+ potential aggregators, (3) begin own MSB/MTL applications in Year 2 once cash flow supports it. The Recommended raise ($3.2M) includes $180K earmarked for starting own license applications.</p>
             </div>
         </div>
     </section>
@@ -1574,33 +1551,40 @@
                 <thead>
                     <tr>
                         <th>Metric</th>
-                        <th class="num">Floor ($2.1M)</th>
-                        <th class="num">Lean ($3.2M)</th>
-                        <th class="num best-col">Rec. ($4.0M)</th>
-                        <th class="num">Full Plan ($5.0M)</th>
+                        <th class="num">Floor ($1.6M)</th>
+                        <th class="num">Lean ($2.5M)</th>
+                        <th class="num best-col">Rec. ($3.2M)</th>
+                        <th class="num">Full Plan ($4.0M)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Year 1 Revenue</td>
-                        <td class="num">$1.34M</td>
-                        <td class="num">$1.87M</td>
-                        <td class="num best-col">$2.80M</td>
-                        <td class="num">$2.80M</td>
+                        <td class="num">$1.85M</td>
+                        <td class="num">$2.63M</td>
+                        <td class="num best-col">$3.10M</td>
+                        <td class="num">$3.10M</td>
                     </tr>
                     <tr>
                         <td>Year 1 Users</td>
-                        <td class="num">15K</td>
-                        <td class="num">28K</td>
+                        <td class="num">18K</td>
+                        <td class="num">32K</td>
                         <td class="num best-col">40K</td>
-                        <td class="num">40K</td>
+                        <td class="num">45K</td>
                     </tr>
                     <tr>
                         <td>Products Launched</td>
-                        <td class="num">2</td>
-                        <td class="num">3&ndash;4</td>
+                        <td class="num">3</td>
+                        <td class="num">4</td>
                         <td class="num best-col">5</td>
                         <td class="num">5</td>
+                    </tr>
+                    <tr>
+                        <td>First Revenue Month</td>
+                        <td class="num">M3</td>
+                        <td class="num">M3</td>
+                        <td class="num best-col">M3</td>
+                        <td class="num">M3</td>
                     </tr>
                     <tr>
                         <td>Team Size (M12)</td>
@@ -1611,45 +1595,45 @@
                     </tr>
                     <tr>
                         <td>Ending Cash (M12)</td>
-                        <td class="num negative">$280K</td>
-                        <td class="num">$1,998K</td>
-                        <td class="num best-col positive">$2,400K</td>
-                        <td class="num positive">$3,700K</td>
+                        <td class="num">$620K</td>
+                        <td class="num">$2,367K</td>
+                        <td class="num best-col positive">$2,800K</td>
+                        <td class="num positive">$3,500K</td>
                     </tr>
                     <tr>
                         <td>Months of Runway (M12)</td>
-                        <td class="num negative">0.8 mo</td>
-                        <td class="num">5.9 mo</td>
-                        <td class="num best-col positive">7.1 mo</td>
+                        <td class="num" style="color: var(--warning);">2.8 mo</td>
+                        <td class="num">7.6 mo</td>
+                        <td class="num best-col positive">8.5 mo</td>
                         <td class="num positive">11 mo</td>
                     </tr>
                     <tr>
                         <td>Revenue Positive Month</td>
-                        <td class="num">M11</td>
-                        <td class="num">M10</td>
-                        <td class="num best-col">M10</td>
-                        <td class="num">M10</td>
+                        <td class="num">M9</td>
+                        <td class="num">M8</td>
+                        <td class="num best-col">M8</td>
+                        <td class="num">M7</td>
                     </tr>
                     <tr>
-                        <td>Survives 3-Month Delay?</td>
+                        <td>Survives Aggregator Loss?</td>
                         <td class="num negative">No</td>
-                        <td class="num" style="color: var(--warning);">Barely</td>
-                        <td class="num best-col positive">Yes</td>
+                        <td class="num" style="color: var(--warning);">Barely (need bridge)</td>
+                        <td class="num best-col positive">Yes (license prep funded)</td>
                         <td class="num positive">Yes</td>
                     </tr>
                     <tr>
                         <td>Series A Ready?</td>
-                        <td class="num negative">Weak</td>
                         <td class="num" style="color: var(--warning);">Possible</td>
-                        <td class="num best-col positive">Strong</td>
+                        <td class="num positive">Strong</td>
+                        <td class="num best-col positive">Very Strong</td>
                         <td class="num positive">Very Strong</td>
                     </tr>
                     <tr>
                         <td>Dilution (at $20M pre)</td>
-                        <td class="num positive">9.5%</td>
-                        <td class="num">13.8%</td>
-                        <td class="num best-col">16.7%</td>
-                        <td class="num">20.0%</td>
+                        <td class="num positive">7.4%</td>
+                        <td class="num">11.1%</td>
+                        <td class="num best-col">13.8%</td>
+                        <td class="num">16.7%</td>
                     </tr>
                     <tr class="bold-row">
                         <td><strong>Risk Level</strong></td>
@@ -1672,28 +1656,28 @@
 
         <div class="assumptions-grid">
             <div class="assumption-chip">
+                <div class="a-icon">&#129309;</div>
+                <div class="a-text"><strong>Aggregator model</strong><br>Operating under existing aggregator licenses. No MSB/MTL costs. Rev-share or per-txn fees to aggregator (15&ndash;30 bps).</div>
+            </div>
+            <div class="assumption-chip">
                 <div class="a-icon">&#128176;</div>
                 <div class="a-text"><strong>CAC: $35 blended</strong><br>Validated by MyBambu playbook (0&rarr;1.2M users). Industry avg is $150&ndash;300.</div>
             </div>
             <div class="assumption-chip">
                 <div class="a-icon">&#128200;</div>
-                <div class="a-text"><strong>Gross margin: 60%</strong><br>Consistent with fintech benchmarks for cash advance + card programs.</div>
+                <div class="a-text"><strong>Gross margin: 55&ndash;58%</strong><br>Slightly lower than self-licensed (60%) due to aggregator rev-share. Still strong.</div>
             </div>
             <div class="assumption-chip">
                 <div class="a-icon">&#128101;</div>
                 <div class="a-text"><strong>Retention: 92%+ monthly</strong><br>Direct deposit lock-in + multi-product stickiness drives high retention.</div>
             </div>
             <div class="assumption-chip">
-                <div class="a-icon">&#128197;</div>
-                <div class="a-text"><strong>Licensing: 3&ndash;4 months</strong><br>Priority states first. Assumes no major regulatory delays.</div>
-            </div>
-            <div class="assumption-chip">
-                <div class="a-icon">&#128179;</div>
-                <div class="a-text"><strong>Default rate: &lt;3%</strong><br>Based on Pedro's track record at MyBambu with underwriting model.</div>
+                <div class="a-icon">&#127760;</div>
+                <div class="a-text"><strong>Remittances by Month 4</strong><br>Aggregator enables immediate LATAM corridor access. No licensing wait.</div>
             </div>
             <div class="assumption-chip">
                 <div class="a-icon">&#127919;</div>
-                <div class="a-text"><strong>Revenue ramp: 5 months</strong><br>First revenue Month 5, breakeven Month 10, stable growth by Month 12.</div>
+                <div class="a-text"><strong>Revenue ramp: Month 3</strong><br>First revenue Month 3, breakeven Month 8, stable growth by Month 12.</div>
             </div>
         </div>
     </section>
@@ -1705,28 +1689,28 @@
             <div class="bottom-line-grid">
                 <div class="bottom-line-item">
                     <div class="bl-label">Absolute Minimum</div>
-                    <div class="bl-value">$2.1M</div>
-                    <div class="bl-note">Survivable but fragile. One setback = game over.</div>
+                    <div class="bl-value">$1.6M</div>
+                    <div class="bl-note">Viable with aggregator. 3 products, tight but possible.</div>
                 </div>
                 <div class="bottom-line-item">
                     <div class="bl-label">Recommended Minimum</div>
-                    <div class="bl-value green">$3.2M</div>
-                    <div class="bl-note">Lean but viable. 3 core products, 8-person team, 2-month buffer.</div>
+                    <div class="bl-value green">$2.5M</div>
+                    <div class="bl-note">Lean but strong. 4 products, 8-person team, profitable by M8.</div>
                 </div>
                 <div class="bottom-line-item">
                     <div class="bl-label">Optimal Year 1</div>
-                    <div class="bl-value">$4.0M</div>
+                    <div class="bl-value">$3.2M</div>
                     <div class="bl-note">Full execution. All 5 products, proper team, de-risked.</div>
                 </div>
             </div>
             <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.85; max-width: 700px; line-height: 1.7; position: relative; z-index: 2;">
-                <strong>Our recommendation:</strong> Raise <strong>$3.2M&ndash;$4.0M</strong> for Year 1. This provides enough runway to launch core products, prove unit economics, reach 28K&ndash;40K users, and end the year with 6+ months of cash in the bank &mdash; positioning UniCash strongly for either a Series A or continued growth from cash flow.
+                <strong>Our recommendation:</strong> Raise <strong>$2.5M&ndash;$3.2M</strong> for Year 1. The aggregator model eliminates licensing costs and gets remittances live by Month 4, accelerating revenue by 2 months. You reach profitability by Month 8, end Year 1 with $2.4M&ndash;$2.8M cash in the bank, and are strongly positioned for Series A or self-licensing.
             </p>
         </div>
     </section>
 
     <p style="text-align: center; margin-top: 3rem; font-size: 0.8rem; color: var(--gray-600);">
-        UniCash &mdash; Year 1 Startup Plan &mdash; Confidential
+        UniCash &mdash; Year 1 Startup Plan (Aggregator Model) &mdash; Confidential
         <br><a href="3-year-exit-plan.html" style="color: var(--primary); text-decoration: none;">View Full 3-Year Exit Plan &rarr;</a>
     </p>
 
